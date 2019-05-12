@@ -1,0 +1,14 @@
+controllers:
+    host: 'masommeliere.fr'
+    resource: ../../src/Controller/
+    type: annotation
+
+api_auth_login:
+    host: 'api.masommeliere.fr'
+    path: /login_check
+    methods: [POST]
+
+api_controllers:
+    host: 'api.masommeliere.fr'
+    resource: ../../src/ApiController/
+    type: annotation
