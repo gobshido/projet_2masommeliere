@@ -1,9 +1,8 @@
 swiftmailer:
-    swiftmailer:
-        delivery_addresses: ['gobshido@gmail.com']
-        transport: smtp
-        encryption: ssl
-        host: smtp.gmail.com
-        username: gobshido@gmail.com
-        password: redwarf64
-        spool: { type: 'memory' }
+    delivery_addresses: ['gobshido@gmail.com']
+    transport: smtp
+    encryption: ssl
+    host: smtp.gmail.com
+    username: gobshido@gmail.com
+    password: redwarf64
+    spool: { type: 'memory' }
