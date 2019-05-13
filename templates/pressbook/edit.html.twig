@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Pressbook{% endblock %}
+
+{% block body %}
+    <h1>Edit Pressbook</h1>
+
+    {{ include('pressbook/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('pressbook_index') }}">back to list</a>
+
+    {{ include('pressbook/_delete_form.html.twig') }}
+{% endblock %}

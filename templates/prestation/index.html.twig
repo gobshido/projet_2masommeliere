@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestation index{% endblock %}
+
+{% block body %}
+    <h1>Prestation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cible_prestation</th>
+                <th>Nom_prestation</th>
+                <th>Description_prestation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prestation in prestations %}
+            <tr>
+                <td>{{ prestation.id }}</td>
+                <td>{{ prestation.ciblePrestation }}</td>
+                <td>{{ prestation.nomPrestation }}</td>
+                <td>{{ prestation.descriptionPrestation }}</td>
+                <td>
+                    <a href="{{ path('prestation_show', {'id': prestation.id}) }}">show</a>
+                    <a href="{{ path('prestation_edit', {'id': prestation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('prestation_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pressbook index{% endblock %}
+
+{% block body %}
+    <h1>Pressbook index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url_pressbook</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pressbook in pressbooks %}
+            <tr>
+                <td>{{ pressbook.id }}</td>
+                <td>{{ pressbook.urlPressbook }}</td>
+                <td>
+                    <a href="{{ path('pressbook_show', {'id': pressbook.id}) }}">show</a>
+                    <a href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pressbook_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactuser{% endblock %}
+
+{% block body %}
+    <h1>Contactuser</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contactuser.id }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ contactuser.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Heure_ouverture</th>
+                <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heure_fermeture</th>
+                <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Presentation</th>
+                <td>{{ contactuser.presentation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contactuser_index') }}">back to list</a>
+
+    <a href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">edit</a>
+
+    {{ include('contactuser/_delete_form.html.twig') }}
+{% endblock %}

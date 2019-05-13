@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pressbook{% endblock %}
+
+{% block body %}
+    <h1>Pressbook</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pressbook.id }}</td>
+            </tr>
+            <tr>
+                <th>Url_pressbook</th>
+                <td>{{ pressbook.urlPressbook }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('pressbook_index') }}">back to list</a>
+
+    <a href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">edit</a>
+
+    {{ include('pressbook/_delete_form.html.twig') }}
+{% endblock %}
