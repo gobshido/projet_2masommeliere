@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190513150535 extends AbstractMigration
+final class Version20190515064952 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,7 @@ final class Version20190513150535 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE actualite (id INT AUTO_INCREMENT NOT NULL, titre_actualite VARCHAR(255) NOT NULL, description_actualite VARCHAR(1020) NOT NULL, date_actualite DATE DEFAULT NULL, heure_actualite TIME DEFAULT NULL, lieu_actualite VARCHAR(510) DEFAULT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE contactuser (id INT AUTO_INCREMENT NOT NULL, telephone VARCHAR(255) DEFAULT NULL, jour_ouverture VARCHAR(255) NOT NULL, heure_ouverture TIME DEFAULT NULL, heure_fermeture TIME DEFAULT NULL, presentation VARCHAR(1020) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190513150535 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE actualite');
+        $this->addSql('DROP TABLE contactuser');
     }
 }

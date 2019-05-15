@@ -22,6 +22,11 @@ class Contactuser
     private $telephone;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $jour_ouverture;
+
+    /**
      * @ORM\Column(type="time", nullable=true)
      */
     private $heure_ouverture;
@@ -49,6 +54,18 @@ class Contactuser
     public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getJourOuverture(): ?string
+    {
+        return $this->jour_ouverture;
+    }
+
+    public function setJourOuverture(string $jour_ouverture): self
+    {
+        $this->jour_ouverture = $jour_ouverture;
 
         return $this;
     }

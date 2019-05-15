@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Telephone</th>
+                <th>Jour_ouverture</th>
                 <th>Heure_ouverture</th>
                 <th>Heure_fermeture</th>
                 <th>Presentation</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{ contactuser.id }}</td>
                 <td>{{ contactuser.telephone }}</td>
+                <td>{{ contactuser.jourOuverture }}</td>
                 <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i:s') : '' }}</td>
                 <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i:s') : '' }}</td>
                 <td>{{ contactuser.presentation }}</td>
@@ -31,7 +33,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

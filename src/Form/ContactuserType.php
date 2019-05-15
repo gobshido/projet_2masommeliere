@@ -13,6 +13,7 @@ class ContactuserType extends AbstractType
     {
         $builder
             ->add('telephone')
+            ->add('jour_ouverture')
             ->add('heure_ouverture')
             ->add('heure_fermeture')
             ->add('presentation')
