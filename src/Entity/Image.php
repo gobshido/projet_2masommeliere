@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
@@ -35,6 +36,11 @@ class Image
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $credit;
+
+    /**
+     * @Assert\File(mimeTypes={ "image/png", "image/jpg", "image/jpeg", "image/gif" })
+     */
+    private $file;
 
     public function getId(): ?int
     {
@@ -85,6 +91,18 @@ class Image
     public function setCredit(?string $credit): self
     {
         $this->credit = $credit;
+
+        return $this;
+    }
+
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function setFile($file)
+    {
+        $this->file = $file;
 
         return $this;
     }

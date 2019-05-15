@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Url_pressbook</th>
+                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ pressbook.id }}</td>
                 <td>{{ pressbook.urlPressbook }}</td>
+                <td><img src="{{asset(pressbook.image.imgpath) }}" width="150px"></td>
                 <td>
                     <a href="{{ path('pressbook_show', {'id': pressbook.id}) }}">show</a>
                     <a href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">edit</a>

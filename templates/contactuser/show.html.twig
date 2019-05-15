@@ -21,16 +21,21 @@
             </tr>
             <tr>
                 <th>Heure_ouverture</th>
-                <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i:s') : '' }}</td>
+                <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
             </tr>
             <tr>
                 <th>Heure_fermeture</th>
-                <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i:s') : '' }}</td>
+                <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{asset(contactuser.image.imgpath) }}" width="150px"></td>
             </tr>
             <tr>
                 <th>Presentation</th>
                 <td>{{ contactuser.presentation }}</td>
             </tr>
+
         </tbody>
     </table>
 

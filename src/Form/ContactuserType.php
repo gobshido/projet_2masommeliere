@@ -17,6 +17,9 @@ class ContactuserType extends AbstractType
             ->add('heure_ouverture')
             ->add('heure_fermeture')
             ->add('presentation')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 

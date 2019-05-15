@@ -13,6 +13,9 @@ class PressbookType extends AbstractType
     {
         $builder
             ->add('url_pressbook')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 
