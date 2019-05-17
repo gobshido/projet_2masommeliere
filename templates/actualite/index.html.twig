@@ -14,7 +14,6 @@
                 <th>Date_actualite</th>
                 <th>Heure_actualite</th>
                 <th>Lieu_actualite</th>
-                <th>Created_at</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -27,7 +26,6 @@
                 <td>{{ actualite.dateActualite ? actualite.dateActualite|date('Y-m-d') : '' }}</td>
                 <td>{{ actualite.heureActualite ? actualite.heureActualite|date('H:i:s') : '' }}</td>
                 <td>{{ actualite.lieuActualite }}</td>
-                <td>{{ actualite.createdAt ? actualite.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('actualite_show', {'id': actualite.id}) }}">show</a>
                     <a href="{{ path('actualite_edit', {'id': actualite.id}) }}">edit</a>
@@ -35,7 +33,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
