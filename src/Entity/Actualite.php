@@ -41,6 +41,11 @@ class Actualite
      */
     private $lieu_actualite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Image", cascade={"persist"})
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Actualite
     public function setLieuActualite(?string $lieu_actualite): self
     {
         $this->lieu_actualite = $lieu_actualite;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

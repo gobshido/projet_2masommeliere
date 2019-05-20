@@ -17,6 +17,9 @@ class ActualiteType extends AbstractType
             ->add('date_actualite')
             ->add('heure_actualite')
             ->add('lieu_actualite')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 
