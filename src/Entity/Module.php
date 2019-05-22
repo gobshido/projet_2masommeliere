@@ -19,55 +19,55 @@ class Module
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom_module;
+    private $nom;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $duree_module;
+    private $duree;
 
     /**
      * @ORM\Column(type="string", length=2040, nullable=true)
      */
-    private $description_module;
+    private $description;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomModule(): ?string
+    public function getNom(): ?string
     {
-        return $this->nom_module;
+        return $this->nom;
     }
 
-    public function setNomModule(string $nom_module): self
+    public function setNom(string $nom): self
     {
-        $this->nom_module = $nom_module;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getDureeModule(): ?\DateTimeInterface
+    public function getDuree(): ?\DateTimeInterface
     {
-        return $this->duree_module;
+        return $this->duree;
     }
 
-    public function setDureeModule(?\DateTimeInterface $duree_module): self
+    public function setDuree(?\DateTimeInterface $duree): self
     {
-        $this->duree_module = $duree_module;
+        $this->duree = $duree;
 
         return $this;
     }
 
-    public function getDescriptionModule(): ?string
+    public function getDescription(): ?string
     {
-        return $this->description_module;
+        return $this->description;
     }
 
-    public function setDescriptionModule(?string $description_module): self
+    public function setDescription(?string $description): self
     {
-        $this->description_module = $description_module;
+        $this->description = $description;
 
         return $this;
     }

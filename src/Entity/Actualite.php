@@ -19,27 +19,27 @@ class Actualite
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre_actualite;
+    private $titre;
 
     /**
      * @ORM\Column(type="string", length=1020)
      */
-    private $description_actualite;
+    private $description;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date_actualite;
+    private $date;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $heure_actualite;
+    private $heure;
 
     /**
      * @ORM\Column(type="string", length=510, nullable=true)
      */
-    private $lieu_actualite;
+    private $lieu;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Image", cascade={"persist"})
@@ -51,62 +51,62 @@ class Actualite
         return $this->id;
     }
 
-    public function getTitreActualite(): ?string
+    public function getTitre(): ?string
     {
-        return $this->titre_actualite;
+        return $this->titre;
     }
 
-    public function setTitreActualite(string $titre_actualite): self
+    public function setTitre(string $titre): self
     {
-        $this->titre_actualite = $titre_actualite;
+        $this->titre = $titre;
 
         return $this;
     }
 
-    public function getDescriptionActualite(): ?string
+    public function getDescription(): ?string
     {
-        return $this->description_actualite;
+        return $this->description;
     }
 
-    public function setDescriptionActualite(string $description_actualite): self
+    public function setDescription(string $description): self
     {
-        $this->description_actualite = $description_actualite;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getDateActualite(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->date_actualite;
+        return $this->date;
     }
 
-    public function setDateActualite(?\DateTimeInterface $date_actualite): self
+    public function setDate(?\DateTimeInterface $date): self
     {
-        $this->date_actualite = $date_actualite;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getHeureActualite(): ?\DateTimeInterface
+    public function getHeure(): ?\DateTimeInterface
     {
-        return $this->heure_actualite;
+        return $this->heure;
     }
 
-    public function setHeureActualite(?\DateTimeInterface $heure_actualite): self
+    public function setHeure(?\DateTimeInterface $heure): self
     {
-        $this->heure_actualite = $heure_actualite;
+        $this->heure = $heure;
 
         return $this;
     }
 
-    public function getLieuActualite(): ?string
+    public function getLieu(): ?string
     {
-        return $this->lieu_actualite;
+        return $this->lieu;
     }
 
-    public function setLieuActualite(?string $lieu_actualite): self
+    public function setLieu(?string $lieu): self
     {
-        $this->lieu_actualite = $lieu_actualite;
+        $this->lieu = $lieu;
 
         return $this;
     }

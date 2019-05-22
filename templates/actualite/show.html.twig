@@ -12,28 +12,28 @@
                 <td>{{ actualite.id }}</td>
             </tr>
             <tr>
-                <th>Titre_actualite</th>
-                <td>{{ actualite.titreActualite }}</td>
+                <th>Titre</th>
+                <td>{{ actualite.titre }}</td>
             </tr>
             <tr>
-                <th>Description_actualite</th>
-                <td>{{ actualite.descriptionActualite }}</td>
+                <th>Description</th>
+                <td>{{ actualite.description }}</td>
             </tr>
             <tr>
-                <th>Date_actualite</th>
-                <td>{{ actualite.dateActualite ? actualite.dateActualite|date('Y-m-d') : '' }}</td>
+                <th>Date</th>
+                <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
-                <th>Heure_actualite</th>
-                <td>{{ actualite.heureActualite ? actualite.heureActualite|date('H:i:s') : '' }}</td>
+                <th>Heure</th>
+                <td>{{ actualite.heure ? actualite.heure|date('H:i') : '' }}</td>
             </tr>
             <tr>
-                <th>Lieu_actualite</th>
-                <td>{{ actualite.lieuActualite }}</td>
+                <th>Lieu</th>
+                <td>{{ actualite.lieu }}</td>
             </tr>
             <tr>
                 <th>Image</th>
-                <td><img src="{{asset(actualite.image.imgpath) }}" width="150px"></td>
+                <td><img src="{{ asset(actualite.image.imgpath) }}" width="150px"></td>
             </tr>
         </tbody>
     </table>

@@ -12,8 +12,8 @@ class PrixType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prix_particulier')
-            ->add('prix_entreprise')
+            ->add('prixParticulier')
+            ->add('prixEntreprise')
         ;
     }
 

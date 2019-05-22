@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Cible_prestation</th>
-                <th>Nom_prestation</th>
-                <th>Description_prestation</th>
+                <th>Cible</th>
+                <th>Nom</th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +19,9 @@
         {% for prestation in prestations %}
             <tr>
                 <td>{{ prestation.id }}</td>
-                <td>{{ prestation.ciblePrestation }}</td>
-                <td>{{ prestation.nomPrestation }}</td>
-                <td>{{ prestation.descriptionPrestation }}</td>
+                <td>{{ prestation.cible }}</td>
+                <td>{{ prestation.nom }}</td>
+                <td>{{ prestation.description }}</td>
                 <td>
                     <a href="{{ path('prestation_show', {'id': prestation.id}) }}">show</a>
                     <a href="{{ path('prestation_edit', {'id': prestation.id}) }}">edit</a>

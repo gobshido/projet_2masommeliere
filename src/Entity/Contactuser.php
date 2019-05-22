@@ -24,17 +24,17 @@ class Contactuser
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $jour_ouverture;
+    private $jourOuverture;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $heure_ouverture;
+    private $heureOuverture;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $heure_fermeture;
+    private $heureFermeture;
 
     /**
      * @ORM\Column(type="string", length=1020, nullable=true)
@@ -65,36 +65,36 @@ class Contactuser
 
     public function getJourOuverture(): ?string
     {
-        return $this->jour_ouverture;
+        return $this->jourOuverture;
     }
 
-    public function setJourOuverture(string $jour_ouverture): self
+    public function setJourOuverture(string $jourOuverture): self
     {
-        $this->jour_ouverture = $jour_ouverture;
+        $this->jourOuverture = $jourOuverture;
 
         return $this;
     }
 
     public function getHeureOuverture(): ?\DateTimeInterface
     {
-        return $this->heure_ouverture;
+        return $this->heureOuverture;
     }
 
-    public function setHeureOuverture(?\DateTimeInterface $heure_ouverture): self
+    public function setHeureOuverture(?\DateTimeInterface $heureOuverture): self
     {
-        $this->heure_ouverture = $heure_ouverture;
+        $this->heureOuverture = $heureOuverture;
 
         return $this;
     }
 
     public function getHeureFermeture(): ?\DateTimeInterface
     {
-        return $this->heure_fermeture;
+        return $this->heureFermeture;
     }
 
-    public function setHeureFermeture(?\DateTimeInterface $heure_fermeture): self
+    public function setHeureFermeture(?\DateTimeInterface $heureFermeture): self
     {
-        $this->heure_fermeture = $heure_fermeture;
+        $this->heureFermeture = $heureFermeture;
 
         return $this;
     }

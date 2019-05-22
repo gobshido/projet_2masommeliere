@@ -10,9 +10,9 @@
             <tr>
                 <th>Id</th>
                 <th>Telephone</th>
-                <th>Jour_ouverture</th>
-                <th>Heure_ouverture</th>
-                <th>Heure_fermeture</th>
+                <th>Jour ouverture</th>
+                <th>Heure ouverture</th>
+                <th>Heure fermeture</th>
                 <th>Image</th>
                 <th>Presentation</th>
                 <th>actions</th>
@@ -26,7 +26,7 @@
                 <td>{{ contactuser.jourOuverture }}</td>
                 <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
                 <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
-                <td><img src="{{asset(contactuser.image.imgpath) }}" width="150px"></td>
+                <td><img src="{{ asset(contactuser.image.imgpath) }}" width="150px"></td>
                 <td>{{ contactuser.presentation }}</td>
                 <td>
                     <a href="{{ path('contactuser_show', {'id': contactuser.id}) }}">show</a>

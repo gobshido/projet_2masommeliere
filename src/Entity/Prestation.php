@@ -19,55 +19,55 @@ class Prestation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $cible_prestation;
+    private $cible;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom_prestation;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=1020)
      */
-    private $description_prestation;
+    private $description;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCiblePrestation(): ?string
+    public function getCible(): ?string
     {
-        return $this->cible_prestation;
+        return $this->cible;
     }
 
-    public function setCiblePrestation(string $cible_prestation): self
+    public function setCible(string $cible): self
     {
-        $this->cible_prestation = $cible_prestation;
+        $this->cible = $cible;
 
         return $this;
     }
 
-    public function getNomPrestation(): ?string
+    public function getNom(): ?string
     {
-        return $this->nom_prestation;
+        return $this->nom;
     }
 
-    public function setNomPrestation(string $nom_prestation): self
+    public function setNom(string $nom): self
     {
-        $this->nom_prestation = $nom_prestation;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getDescriptionPrestation(): ?string
+    public function getDescription(): ?string
     {
-        return $this->description_prestation;
+        return $this->description;
     }
 
-    public function setDescriptionPrestation(string $description_prestation): self
+    public function setDescription(string $description): self
     {
-        $this->description_prestation = $description_prestation;
+        $this->description = $description;
 
         return $this;
     }

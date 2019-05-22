@@ -129,9 +129,6 @@ class ActualiteController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$actualite->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $image = $actualite->getImage();
-            if($image){
-                $this->removeFile($image->getPath());
-            }
             $entityManager->remove($actualite);
             $entityManager->flush();
         }

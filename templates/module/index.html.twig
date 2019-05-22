@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom_module</th>
-                <th>Duree_module</th>
-                <th>Description_module</th>
+                <th>Nom</th>
+                <th>Duree</th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +19,9 @@
         {% for module in modules %}
             <tr>
                 <td>{{ module.id }}</td>
-                <td>{{ module.nomModule }}</td>
-                <td>{{ module.dureeModule ? module.dureeModule|date('H:i:s') : '' }}</td>
-                <td>{{ module.descriptionModule }}</td>
+                <td>{{ module.nom }}</td>
+                <td>{{ module.duree ? module.duree|date('H:i') : '' }}</td>
+                <td>{{ module.description }}</td>
                 <td>
                     <a href="{{ path('module_show', {'id': module.id}) }}">show</a>
                     <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>

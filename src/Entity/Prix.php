@@ -19,12 +19,12 @@ class Prix
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $prix_particulier;
+    private $prixParticulier;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $prix_entreprise;
+    private $prixEntreprise;
 
     public function getId(): ?int
     {
@@ -33,24 +33,24 @@ class Prix
 
     public function getPrixParticulier(): ?string
     {
-        return $this->prix_particulier;
+        return $this->prixParticulier;
     }
 
-    public function setPrixParticulier(?string $prix_particulier): self
+    public function setPrixParticulier(?string $prixParticulier): self
     {
-        $this->prix_particulier = $prix_particulier;
+        $this->prixParticulier = $prixParticulier;
 
         return $this;
     }
 
     public function getPrixEntreprise(): ?string
     {
-        return $this->prix_entreprise;
+        return $this->prixEntreprise;
     }
 
-    public function setPrixEntreprise(?string $prix_entreprise): self
+    public function setPrixEntreprise(?string $prixEntreprise): self
     {
-        $this->prix_entreprise = $prix_entreprise;
+        $this->prixEntreprise = $prixEntreprise;
 
         return $this;
     }

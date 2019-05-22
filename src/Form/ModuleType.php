@@ -12,9 +12,9 @@ class ModuleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom_module')
-            ->add('duree_module')
-            ->add('description_module')
+            ->add('nom')
+            ->add('duree')
+            ->add('description')
         ;
     }
 
