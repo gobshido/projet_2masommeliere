@@ -12,7 +12,10 @@ class PressbookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url_pressbook')
+            ->add('url')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 

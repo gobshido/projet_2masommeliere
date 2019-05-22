@@ -19,21 +19,38 @@ class Pressbook
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url_pressbook;
+    private $url;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $image;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUrlPressbook(): ?string
+    public function getUrl(): ?string
     {
-        return $this->url_pressbook;
+        return $this->url;
     }
 
-    public function setUrlPressbook(string $url_pressbook): self
+    public function setUrl(string $url): self
     {
-        $this->url_pressbook = $url_pressbook;
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

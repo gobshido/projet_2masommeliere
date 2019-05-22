@@ -19,21 +19,21 @@ class Categorie
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom_categorie;
+    private $nom;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomCategorie(): ?string
+    public function getNom(): ?string
     {
-        return $this->nom_categorie;
+        return $this->nom;
     }
 
-    public function setNomCategorie(string $nom_categorie): self
+    public function setNom(string $nom): self
     {
-        $this->nom_categorie = $nom_categorie;
+        $this->nom = $nom;
 
         return $this;
     }

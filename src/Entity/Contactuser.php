@@ -22,19 +22,29 @@ class Contactuser
     private $telephone;
 
     /**
-     * @ORM\Column(type="time", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $heure_ouverture;
+    private $jourOuverture;
 
     /**
      * @ORM\Column(type="time", nullable=true)
      */
-    private $heure_fermeture;
+    private $heureOuverture;
+
+    /**
+     * @ORM\Column(type="time", nullable=true)
+     */
+    private $heureFermeture;
 
     /**
      * @ORM\Column(type="string", length=1020, nullable=true)
      */
     private $presentation;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -53,26 +63,38 @@ class Contactuser
         return $this;
     }
 
-    public function getHeureOuverture(): ?\DateTimeInterface
+    public function getJourOuverture(): ?string
     {
-        return $this->heure_ouverture;
+        return $this->jourOuverture;
     }
 
-    public function setHeureOuverture(?\DateTimeInterface $heure_ouverture): self
+    public function setJourOuverture(string $jourOuverture): self
     {
-        $this->heure_ouverture = $heure_ouverture;
+        $this->jourOuverture = $jourOuverture;
+
+        return $this;
+    }
+
+    public function getHeureOuverture(): ?\DateTimeInterface
+    {
+        return $this->heureOuverture;
+    }
+
+    public function setHeureOuverture(?\DateTimeInterface $heureOuverture): self
+    {
+        $this->heureOuverture = $heureOuverture;
 
         return $this;
     }
 
     public function getHeureFermeture(): ?\DateTimeInterface
     {
-        return $this->heure_fermeture;
+        return $this->heureFermeture;
     }
 
-    public function setHeureFermeture(?\DateTimeInterface $heure_fermeture): self
+    public function setHeureFermeture(?\DateTimeInterface $heureFermeture): self
     {
-        $this->heure_fermeture = $heure_fermeture;
+        $this->heureFermeture = $heureFermeture;
 
         return $this;
     }
@@ -85,6 +107,18 @@ class Contactuser
     public function setPresentation(?string $presentation): self
     {
         $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

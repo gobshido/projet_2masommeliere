@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Path</th>
                 <th>Imgpath</th>
+                <th>Image</th>
                 <th>Alt</th>
                 <th>Credit</th>
                 <th>actions</th>
@@ -22,6 +23,7 @@
                 <td>{{ image.id }}</td>
                 <td>{{ image.path }}</td>
                 <td>{{ image.imgpath }}</td>
+                <td><img src="{{ asset(image.imgpath) }}" width= "150px"></td>
                 <td>{{ image.alt }}</td>
                 <td>{{ image.credit }}</td>
                 <td>

@@ -12,8 +12,12 @@
                 <td>{{ pressbook.id }}</td>
             </tr>
             <tr>
-                <th>Url_pressbook</th>
-                <td>{{ pressbook.urlPressbook }}</td>
+                <th>Url</th>
+                <td>{{ pressbook.url }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(pressbook.image.imgpath) }}" width="150px"></td>
             </tr>
         </tbody>
     </table>

@@ -13,9 +13,13 @@ class ContactuserType extends AbstractType
     {
         $builder
             ->add('telephone')
-            ->add('heure_ouverture')
-            ->add('heure_fermeture')
+            ->add('jourOuverture')
+            ->add('heureOuverture')
+            ->add('heureFermeture')
             ->add('presentation')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 

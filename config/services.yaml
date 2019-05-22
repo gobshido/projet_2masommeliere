@@ -5,8 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-#    medium_abs_path: '%kernel.project_dir%/public/uploads/images'
-#    medium_path: 'uploads/images'
+    image_abs_path: '%kernel.project_dir%/public/uploads/images'
+    image_path: 'uploads/images'
 
 services:
     # default configuration for services in *this* file

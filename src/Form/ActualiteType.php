@@ -12,12 +12,14 @@ class ActualiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre_actualite')
-            ->add('description_actualite')
-            ->add('date_actualite')
-            ->add('heure_actualite')
-            ->add('lieu_actualite')
-            ->add('created_at')
+            ->add('titre')
+            ->add('description')
+            ->add('date')
+            ->add('heure')
+            ->add('lieu')
+            ->add('image', ImageType::class, array(
+                "required"=>false
+            ))
         ;
     }
 

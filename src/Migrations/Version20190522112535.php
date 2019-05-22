@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190513150535 extends AbstractMigration
+final class Version20190522112535 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20190513150535 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE actualite (id INT AUTO_INCREMENT NOT NULL, titre_actualite VARCHAR(255) NOT NULL, description_actualite VARCHAR(1020) NOT NULL, date_actualite DATE DEFAULT NULL, heure_actualite TIME DEFAULT NULL, lieu_actualite VARCHAR(510) DEFAULT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE actualite ADD image_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE actualite ADD CONSTRAINT FK_549281973DA5256D FOREIGN KEY (image_id) REFERENCES image (id)');
+        $this->addSql('CREATE INDEX IDX_549281973DA5256D ON actualite (image_id)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,8 @@ final class Version20190513150535 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE actualite');
+        $this->addSql('ALTER TABLE actualite DROP FOREIGN KEY FK_549281973DA5256D');
+        $this->addSql('DROP INDEX IDX_549281973DA5256D ON actualite');
+        $this->addSql('ALTER TABLE actualite DROP image_id');
     }
 }
