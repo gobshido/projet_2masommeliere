@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Actualite;
+use App\Entity\Module;
 use App\Form\ActualiteType;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\ActualiteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

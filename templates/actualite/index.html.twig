@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
+                <th>Module</th>
                 <th>Date</th>
                 <th>Heure</th>
                 <th>Lieu</th>
@@ -24,10 +25,11 @@
                 <td>{{ actualite.id }}</td>
                 <td>{{ actualite.titre }}</td>
                 <td>{{ actualite.description }}</td>
+                <td>{% for module in actualite.module %}<div>{{ module.nom }}</div>{% endfor %}</td>
                 <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>
                 <td>{{ actualite.heure ? actualite.heure|date('H:i') : '' }}</td>
                 <td>{{ actualite.lieu }}</td>
-                <td>{% if actualite.image %}<img src="{{ asset(actualite.image.imgpath) }}" width="150px">{% endif %}</td>
+                <td>{% if actualite.image %}<img src="{{ asset(actualite.image.imgpath) }}" width="150px" height="150px">{% endif %}</td>
                 <td>
                     <a href="{{ path('actualite_show', {'id': actualite.id}) }}">show</a>
                     <a href="{{ path('actualite_edit', {'id': actualite.id}) }}">edit</a>

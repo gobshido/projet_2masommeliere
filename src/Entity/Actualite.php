@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +47,16 @@ class Actualite
      * @ORM\ManyToOne(targetEntity="App\Entity\Image", cascade={"persist"})
      */
     private $image;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Module")
+     */
+    private $module;
+
+    public function __construct()
+    {
+        $this->module = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +131,32 @@ class Actualite
     public function setImage(?Image $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Module[]
+     */
+    public function getModule(): Collection
+    {
+        return $this->module;
+    }
+
+    public function addModule(Module $module): self
+    {
+        if (!$this->module->contains($module)) {
+            $this->module[] = $module;
+        }
+
+        return $this;
+    }
+
+    public function removeModule(Module $module): self
+    {
+        if ($this->module->contains($module)) {
+            $this->module->removeElement($module);
+        }
 
         return $this;
     }
