@@ -16,12 +16,40 @@
                 <td>{{ prestation.cible }}</td>
             </tr>
             <tr>
+                <th>Catégorie</th>
+                <td>{{ prestation.categorie }}</td>
+            </tr>
+            <tr>
                 <th>Nom</th>
                 <td>{{ prestation.nom }}</td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ prestation.description }}</td>
+            </tr>
+            <tr>
+                <th>Modules</th>
+                <td>{% for module in prestation.module %}
+                        <br><div>{{ module.nom }}</div>
+                        <div>{{ module.duree ? module.duree|date('H:i') : '' }}</div>
+                        <div>{{ module.description }}</div><br>
+                    {% endfor %}
+                </td>
+            <tr>
+                <th>Prix particulier</th>
+                <td>{% for prix in prestation.prix %}
+                        {{ prestation.prixParticulier }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Prix entreprise</th>
+                <td>{% for prix in prestation.prix %}
+                        <div>{{ prix.prixEntreprise }}</div>
+                    {% endfor %}
+                </td>
+            </tr>
+
             </tr>
         </tbody>
     </table>

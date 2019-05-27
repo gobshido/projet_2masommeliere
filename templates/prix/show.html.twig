@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <th>PrixParticulier</th>
-                <td>{{ prix.prixParticulier }}</td>
+                <td>{{ prix.prixParticulier }}{% if prix.prixParticulier %} €{% endif %}</td>
             </tr>
             <tr>
                 <th>PrixEntreprise</th>
-                <td>{{ prix.prixEntreprise }}</td>
+                <td>{{ prix.prixEntreprise }}{% if prix.prixEntreprise %} €{% endif %}</td>
             </tr>
         </tbody>
     </table>

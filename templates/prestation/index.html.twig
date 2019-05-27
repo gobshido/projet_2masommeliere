@@ -10,8 +10,12 @@
             <tr>
                 <th>Id</th>
                 <th>Cible</th>
+                <th>Catégorie</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Modules</th>
+                <th>Prix particulier</th>
+                <th>Prix entreprise</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,8 +24,21 @@
             <tr>
                 <td>{{ prestation.id }}</td>
                 <td>{{ prestation.cible }}</td>
+                <td>{{ prestation.categorie }}</td>
                 <td>{{ prestation.nom }}</td>
                 <td>{{ prestation.description }}</td>
+                <td>{% for module in prestation.module %}
+                        <div>{{ module.nom }}</div>
+                    {% endfor %}
+                </td>
+                <td>{% for prix in prestation.prix %}
+                        <div>{{ prix.prixParticulier }}</div>
+                    {% endfor %}
+                </td>
+                <td>{% for prix in prestation.prix %}
+                        <div>{{ prix.prixEntreprise }}</div>
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('prestation_show', {'id': prestation.id}) }}">show</a>
                     <a href="{{ path('prestation_edit', {'id': prestation.id}) }}">edit</a>

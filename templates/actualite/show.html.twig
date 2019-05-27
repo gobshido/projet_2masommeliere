@@ -20,6 +20,13 @@
                 <td>{{ actualite.description }}</td>
             </tr>
             <tr>
+                <th>Module</th>
+                <td>{% for module in actualite.module %}
+                        <div>{{ module.nom }}</div>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
                 <th>Date</th>
                 <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>
             </tr>
