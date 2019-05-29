@@ -14,6 +14,7 @@ class PrixType extends AbstractType
         $builder
             ->add('value')
             ->add('devise')
+            ->add('typePrix')
         ;
     }
 

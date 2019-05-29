@@ -37,4 +37,9 @@ class PriceType
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->nom);
+    }
 }

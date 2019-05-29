@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Prestation;
+use App\Entity\Prix;
 use App\Form\PrestationType;
 use App\Repository\PrestationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,6 +32,13 @@ class PrestationController extends AbstractController
     public function new(Request $request): Response
     {
         $prestation = new Prestation();
+        $price1 = new Prix();
+        $price1->setDevise('€');
+        $price2 = new Prix();
+        $price2->setDevise('€');
+        $prestation->addPrice($price1);
+        $prestation->addPrice($price2);
+
         $form = $this->createForm(PrestationType::class, $prestation);
         $form->handleRequest($request);
 

@@ -7,6 +7,7 @@ use App\Entity\Prestation;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -28,7 +29,9 @@ class PrestationType extends AbstractType
                     'toolbar'=>'full'
                 )
             ))
-            ->add('prices')
+            ->add('prices', CollectionType::class, array(
+                'entry_type' => PrixType::class
+            ))
         ;
     }
 
