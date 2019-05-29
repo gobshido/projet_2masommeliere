@@ -34,24 +34,19 @@ class Prestation
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Module", inversedBy="prestations")
+     * @ORM\OneToMany(targetEntity="App\Entity\Prix", mappedBy="prestation")
      */
-    private $module;
+    private $prices;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Module")
      */
-    private $categorie;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Prix")
-     */
-    private $prix;
+    private $modules;
 
     public function __construct()
     {
-        $this->module = new ArrayCollection();
-        $this->prix = new ArrayCollection();
+        $this->prices = new ArrayCollection();
+        $this->modules = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,22 +90,49 @@ class Prestation
         return $this;
     }
 
-    public function __toString() {
-        return $this->nom;
+    /**
+     * @return Collection|Prix[]
+     */
+    public function getPrices(): Collection
+    {
+        return $this->prices;
+    }
+
+    public function addPrice(Prix $price): self
+    {
+        if (!$this->prices->contains($price)) {
+            $this->prices[] = $price;
+            $price->setPrestation($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrice(Prix $price): self
+    {
+        if ($this->prices->contains($price)) {
+            $this->prices->removeElement($price);
+            // set the owning side to null (unless already changed)
+            if ($price->getPrestation() === $this) {
+                $price->setPrestation(null);
+            }
+        }
+
+        return $this;
     }
 
     /**
      * @return Collection|Module[]
      */
-    public function getModule(): Collection
+    public function getModules(): Collection
     {
-        return $this->module;
+        return $this->modules;
     }
 
     public function addModule(Module $module): self
     {
-        if (!$this->module->contains($module)) {
-            $this->module[] = $module;
+        if (!$this->modules->contains($module)) {
+            $this->modules[] = $module;
         }
 
         return $this;
@@ -118,48 +140,11 @@ class Prestation
 
     public function removeModule(Module $module): self
     {
-        if ($this->module->contains($module)) {
-            $this->module->removeElement($module);
+        if ($this->modules->contains($module)) {
+            $this->modules->removeElement($module);
         }
 
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Prix[]
-     */
-    public function getPrix(): Collection
-    {
-        return $this->prix;
-    }
-
-    public function addPrix(Prix $prix): self
-    {
-        if (!$this->prix->contains($prix)) {
-            $this->prix[] = $prix;
-        }
-
-        return $this;
-    }
-
-    public function removePrix(Prix $prix): self
-    {
-        if ($this->prix->contains($prix)) {
-            $this->prix->removeElement($prix);
-        }
-
-        return $this;
-    }
 }

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Image;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,8 +18,18 @@ class ImageType extends AbstractType
                 'label'=>'image',
                 'required'=>false
             ))
-            ->add('alt')
-            ->add('credit')
+            ->add('alt', CKEditorType::class, array(
+                'config'=>array(
+                    'uiColor'=>'#A60815',
+                    'toolbar'=>'full'
+                )
+            ))
+            ->add('credit', CKEditorType::class, array(
+                'config'=>array(
+                    'uiColor'=>'#A60815',
+                    'toolbar'=>'full'
+                )
+            ))
         ;
     }
 

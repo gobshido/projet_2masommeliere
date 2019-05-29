@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Module;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,10 +16,10 @@ class ModuleType extends AbstractType
         $builder
             ->add('nom')
             ->add('duree')
-            ->add('description', TextareaType::class, array(
-                'attr'=>array(
-                    'rows'=>'6',
-                    'cols'=>'100'
+            ->add('description', CKEditorType::class, array(
+                'config'=>array(
+                    'uiColor'=>'#A60815',
+                    'toolbar'=>'full'
                 )
             ))
         ;

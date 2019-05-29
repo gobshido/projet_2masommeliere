@@ -10,12 +10,10 @@
             <tr>
                 <th>Id</th>
                 <th>Cible</th>
-                <th>Catégorie</th>
                 <th>Nom</th>
-                <th>Description</th>
                 <th>Modules</th>
-                <th>Prix particulier</th>
-                <th>Prix entreprise</th>
+                <th>Description</th>
+                <th>Prix</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,19 +22,14 @@
             <tr>
                 <td>{{ prestation.id }}</td>
                 <td>{{ prestation.cible }}</td>
-                <td>{{ prestation.categorie }}</td>
                 <td>{{ prestation.nom }}</td>
+                <td>{% for module in prestation.modules %}
+                        {{ module.nom }}
+                    {% endfor %}
+                </td>
                 <td>{{ prestation.description }}</td>
-                <td>{% for module in prestation.module %}
-                        <div>{{ module.nom }}</div>
-                    {% endfor %}
-                </td>
-                <td>{% for prix in prestation.prix %}
-                        <div>{{ prix.prixParticulier }}</div>
-                    {% endfor %}
-                </td>
-                <td>{% for prix in prestation.prix %}
-                        <div>{{ prix.prixEntreprise }}</div>
+                <td>{% for price in prestation.prices %}
+                        <span>{{ price.value }}</span>
                     {% endfor %}
                 </td>
                 <td>

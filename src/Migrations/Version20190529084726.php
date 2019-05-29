@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190522122717 extends AbstractMigration
+final class Version20190529084726 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20190522122717 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE prix (id INT AUTO_INCREMENT NOT NULL, prix_particulier VARCHAR(255) DEFAULT NULL, prix_entreprise VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE prix ADD type_prix_id INT NOT NULL');
+        $this->addSql('ALTER TABLE prix ADD CONSTRAINT FK_F7EFEA5EBC664D07 FOREIGN KEY (type_prix_id) REFERENCES price_type (id)');
+        $this->addSql('CREATE INDEX IDX_F7EFEA5EBC664D07 ON prix (type_prix_id)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,8 @@ final class Version20190522122717 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE prix');
+        $this->addSql('ALTER TABLE prix DROP FOREIGN KEY FK_F7EFEA5EBC664D07');
+        $this->addSql('DROP INDEX IDX_F7EFEA5EBC664D07 ON prix');
+        $this->addSql('ALTER TABLE prix DROP type_prix_id');
     }
 }

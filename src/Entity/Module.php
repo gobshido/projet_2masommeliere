@@ -33,11 +33,6 @@ class Module
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Prestation", mappedBy="module")
-     */
-    private $prestations;
-
     public function __construct()
     {
         $this->prestations = new ArrayCollection();
@@ -86,33 +81,5 @@ class Module
 
     public function __toString() {
         return $this->nom;
-    }
-
-    /**
-     * @return Collection|Prestation[]
-     */
-    public function getPrestations(): Collection
-    {
-        return $this->prestations;
-    }
-
-    public function addPrestation(Prestation $prestation): self
-    {
-        if (!$this->prestations->contains($prestation)) {
-            $this->prestations[] = $prestation;
-            $prestation->addModule($this);
-        }
-
-        return $this;
-    }
-
-    public function removePrestation(Prestation $prestation): self
-    {
-        if ($this->prestations->contains($prestation)) {
-            $this->prestations->removeElement($prestation);
-            $prestation->removeModule($this);
-        }
-
-        return $this;
     }
 }

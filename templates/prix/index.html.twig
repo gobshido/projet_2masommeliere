@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Prix Particulier</th>
-                <th>Prix Entreprise</th>
+                <th>Value</th>
+                <th>Devise</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,8 +18,8 @@
         {% for prix in prixes %}
             <tr>
                 <td>{{ prix.id }}</td>
-                <td>{{ prix.prixParticulier }}{% if prix.prixParticulier %} €{% endif %}</td>
-                <td>{{ prix.prixEntreprise }}{% if prix.prixEntreprise %} €{% endif %}</td>
+                <td>{{ prix.value }}</td>
+                <td>{{ prix.devise }}</td>
                 <td>
                     <a href="{{ path('prix_show', {'id': prix.id}) }}">show</a>
                     <a href="{{ path('prix_edit', {'id': prix.id}) }}">edit</a>

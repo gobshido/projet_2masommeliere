@@ -17,45 +17,82 @@ class Prix
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $prixParticulier;
+    private $value;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $prixEntreprise;
+    private $devise;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $prestation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\PriceType")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typePrix;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPrixParticulier(): ?string
+    public function getValue(): ?string
     {
-        return $this->prixParticulier;
+        return $this->value;
     }
 
-    public function setPrixParticulier(?string $prixParticulier): self
+    public function setValue(string $value): self
     {
-        $this->prixParticulier = $prixParticulier;
+        $this->value = $value;
 
         return $this;
     }
 
-    public function getPrixEntreprise(): ?string
+    public function getDevise(): ?string
     {
-        return $this->prixEntreprise;
+        return $this->devise;
     }
 
-    public function setPrixEntreprise(?string $prixEntreprise): self
+    public function setDevise(?string $devise): self
     {
-        $this->prixEntreprise = $prixEntreprise;
+        $this->devise = $devise;
+
+        return $this;
+    }
+
+    public function getPrestation(): ?Prestation
+    {
+        return $this->prestation;
+    }
+
+    public function setPrestation(?Prestation $prestation): self
+    {
+        $this->prestation = $prestation;
+
+        return $this;
+    }
+
+    public function getTypePrix(): ?PriceType
+    {
+        return $this->typePrix;
+    }
+
+    public function setTypePrix(?PriceType $typePrix): self
+    {
+        $this->typePrix = $typePrix;
 
         return $this;
     }
 
     public function __toString() {
-        return ''.$this->prixParticulier;
+        return $this->value;
     }
 }

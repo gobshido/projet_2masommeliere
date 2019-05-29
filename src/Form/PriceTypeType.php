@@ -2,25 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Prix;
+use App\Entity\PriceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PrixType extends AbstractType
+class PriceTypeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('value')
-            ->add('devise')
+            ->add('nom')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Prix::class,
+            'data_class' => PriceType::class,
         ]);
     }
 }

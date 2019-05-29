@@ -14,8 +14,8 @@ class PdfType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file', CheckboxType::class, array(
-                'label'=>'pdf',
+            ->add('file', FileType::class, array(
+                'label'=>'Pdf',
                 'required'=>false
             ))
         ;

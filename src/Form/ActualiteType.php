@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Actualite;
 use App\Entity\Module;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -16,10 +17,10 @@ class ActualiteType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('description', TextareaType::class, array(
-                'attr'=>array(
-                    'rows'=>'6',
-                    'cols'=>'100'
+            ->add('description', CKEditorType::class, array(
+                'config'=>array(
+                    'uiColor'=>'#A60815',
+                    'toolbar'=>'full'
                 )
             ))
             ->add('module', EntityType::class, array(

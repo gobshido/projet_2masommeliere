@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Contactuser;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,10 +18,10 @@ class ContactuserType extends AbstractType
             ->add('jourOuverture')
             ->add('heureOuverture')
             ->add('heureFermeture')
-            ->add('presentation', TextareaType::class, array(
-                'attr'=>array(
-                    'rows'=>'6',
-                    'cols'=>'100'
+            ->add('presentation', CKEditorType::class, array(
+                'config'=>array(
+                    'uiColor'=>'#A60815',
+                    'toolbar'=>'full'
                 )
             ))
             ->add('image', ImageType::class, array(
