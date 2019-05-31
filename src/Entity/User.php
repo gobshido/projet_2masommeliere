@@ -20,57 +20,40 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name_user;
+    private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="App\Entity\Contactuser", cascade={"persist", "remove"})
      */
-    private $email_user;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password_user;
+    private $contactUser;
 
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function getNameUser(): ?string
+    public function getName(): ?string
     {
-        return $this->name_user;
+        return $this->name;
     }
 
-    public function setNameUser(string $name_user): self
+    public function setName(?string $name): self
     {
-        $this->name_user = $name_user;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getEmailUser(): ?string
+    public function getContactUser(): ?Contactuser
     {
-        return $this->email_user;
+        return $this->contactUser;
     }
 
-    public function setEmailUser(string $email_user): self
+    public function setContactUser(?Contactuser $contactUser): self
     {
-        $this->email_user = $email_user;
-
-        return $this;
-    }
-
-    public function getPasswordUser(): ?string
-    {
-        return $this->password_user;
-    }
-
-    public function setPasswordUser(string $password_user): self
-    {
-        $this->password_user = $password_user;
+        $this->contactUser = $contactUser;
 
         return $this;
     }
