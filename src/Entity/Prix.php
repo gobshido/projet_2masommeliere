@@ -24,7 +24,7 @@ class Prix
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $devise;
+    private $devise = '€';
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices")
@@ -38,6 +38,15 @@ class Prix
      */
     private $typePrix;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isActivated;
+
+    public function __construct()
+    {
+        $this->setDevise('€');
+    }
 
     public function getId(): ?int
     {
@@ -94,5 +103,17 @@ class Prix
 
     public function __toString() {
         return ''.$this->value;
+    }
+
+    public function getIsActivated(): ?bool
+    {
+        return $this->isActivated;
+    }
+
+    public function setIsActivated(?bool $isActivated): self
+    {
+        $this->isActivated = $isActivated;
+
+        return $this;
     }
 }

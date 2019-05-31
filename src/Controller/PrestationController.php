@@ -6,6 +6,7 @@ use App\Entity\Prestation;
 use App\Entity\Prix;
 use App\Form\PrestationType;
 use App\Repository\PrestationRepository;
+use App\Repository\PriceTypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,13 +30,15 @@ class PrestationController extends AbstractController
     /**
      * @Route("/new", name="prestation_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, PriceTypeRepository $priceTypeRepository): Response
     {
         $prestation = new Prestation();
+        $partPriceType = $priceTypeRepository->findOneBy(array('value'=>0));
+        $proPriceType = $priceTypeRepository->findOneBy(array('value'=>10));
         $price1 = new Prix();
-        $price1->setDevise('€');
+            $price1->setTypePrix($partPriceType);
         $price2 = new Prix();
-        $price2->setDevise('€');
+            $price2->setTypePrix($proPriceType);
         $prestation->addPrice($price1);
         $prestation->addPrice($price2);
 

@@ -13,6 +13,7 @@ class PriceTypeType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('value')
         ;
     }
 

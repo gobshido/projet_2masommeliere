@@ -21,6 +21,11 @@ class PriceType
      */
     private $nom;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $value;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,5 +46,17 @@ class PriceType
     public function __toString()
     {
         return sprintf('%s', $this->nom);
+    }
+
+    public function getValue(): ?int
+    {
+        return $this->value;
+    }
+
+    public function setValue(?int $value): self
+    {
+        $this->value = $value;
+
+        return $this;
     }
 }

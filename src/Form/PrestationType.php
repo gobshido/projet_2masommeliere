@@ -30,7 +30,9 @@ class PrestationType extends AbstractType
                 )
             ))
             ->add('prices', CollectionType::class, array(
-                'entry_type' => PrixType::class
+                'entry_type' => PrixType::class,
+                'entry_options' => array('label' => false),
+                'label'=>' '
             ))
         ;
     }
