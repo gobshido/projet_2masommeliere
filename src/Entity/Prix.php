@@ -36,6 +36,11 @@ class Prix
      */
     private $targetprice;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isDesactivated;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Prix
     public function setTargetprice(?Targetprice $targetprice): self
     {
         $this->targetprice = $targetprice;
+
+        return $this;
+    }
+
+    public function getIsDesactivated(): ?bool
+    {
+        return $this->isDesactivated;
+    }
+
+    public function setIsDesactivated(?bool $isDesactivated): self
+    {
+        $this->isDesactivated = $isDesactivated;
 
         return $this;
     }
