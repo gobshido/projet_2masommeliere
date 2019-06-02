@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PriceTypeRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TargetpriceRepository")
  */
-class PriceType
+class Targetprice
 {
     /**
      * @ORM\Id()
@@ -17,7 +17,7 @@ class PriceType
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom;
 
@@ -36,16 +36,11 @@ class PriceType
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return sprintf('%s', $this->nom);
     }
 
     public function getValue(): ?int

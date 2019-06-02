@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cible index{% endblock %}
+
+{% block body %}
+    <h1>Cible index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cible in cibles %}
+            <tr>
+                <td>{{ cible.id }}</td>
+                <td>{{ cible.nom }}</td>
+                <td>
+                    <a href="{{ path('cible_show', {'id': cible.id}) }}">show</a>
+                    <a href="{{ path('cible_edit', {'id': cible.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cible_new') }}">Create new</a>
+{% endblock %}

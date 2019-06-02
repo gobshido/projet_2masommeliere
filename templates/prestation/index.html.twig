@@ -9,11 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Cible</th>
                 <th>Nom</th>
-                <th>Modules</th>
                 <th>Description</th>
-                <th>Prix</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,17 +18,8 @@
         {% for prestation in prestations %}
             <tr>
                 <td>{{ prestation.id }}</td>
-                <td>{{ prestation.cible }}</td>
                 <td>{{ prestation.nom }}</td>
-                <td>{% for module in prestation.modules %}
-                        {{ module.nom }}
-                    {% endfor %}
-                </td>
                 <td>{{ prestation.description }}</td>
-                <td>{% for price in prestation.prices %}
-                        <span>{{ price.value }}</span>
-                    {% endfor %}
-                </td>
                 <td>
                     <a href="{{ path('prestation_show', {'id': prestation.id}) }}">show</a>
                     <a href="{{ path('prestation_edit', {'id': prestation.id}) }}">edit</a>
@@ -39,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

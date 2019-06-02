@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Targetprice{% endblock %}
+
+{% block body %}
+    <h1>Targetprice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ targetprice.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ targetprice.nom }}</td>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <td>{{ targetprice.value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('targetprice_index') }}">back to list</a>
+
+    <a href="{{ path('targetprice_edit', {'id': targetprice.id}) }}">edit</a>
+
+    {{ include('targetprice/_delete_form.html.twig') }}
+{% endblock %}

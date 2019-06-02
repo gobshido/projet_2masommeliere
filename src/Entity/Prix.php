@@ -17,36 +17,14 @@ class Prix
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $value;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $devise = '€';
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $prestation;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\PriceType")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $typePrix;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $isActivated;
-
-    public function __construct()
-    {
-        $this->setDevise('€');
-    }
+    private $devise;
 
     public function getId(): ?int
     {
@@ -58,7 +36,7 @@ class Prix
         return $this->value;
     }
 
-    public function setValue(string $value): self
+    public function setValue(?string $value): self
     {
         $this->value = $value;
 
@@ -73,46 +51,6 @@ class Prix
     public function setDevise(?string $devise): self
     {
         $this->devise = $devise;
-
-        return $this;
-    }
-
-    public function getPrestation(): ?Prestation
-    {
-        return $this->prestation;
-    }
-
-    public function setPrestation(?Prestation $prestation): self
-    {
-        $this->prestation = $prestation;
-
-        return $this;
-    }
-
-    public function getTypePrix(): ?PriceType
-    {
-        return $this->typePrix;
-    }
-
-    public function setTypePrix(?PriceType $typePrix): self
-    {
-        $this->typePrix = $typePrix;
-
-        return $this;
-    }
-
-    public function __toString() {
-        return ''.$this->value;
-    }
-
-    public function getIsActivated(): ?bool
-    {
-        return $this->isActivated;
-    }
-
-    public function setIsActivated(?bool $isActivated): self
-    {
-        $this->isActivated = $isActivated;
 
         return $this;
     }

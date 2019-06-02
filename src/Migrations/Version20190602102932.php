@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190531131426 extends AbstractMigration
+final class Version20190602102932 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20190531131426 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE price_type ADD value INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE prix ADD is_activated TINYINT(1) DEFAULT NULL');
+        $this->addSql('CREATE TABLE targetprice (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) DEFAULT NULL, value INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20190531131426 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE price_type DROP value');
-        $this->addSql('ALTER TABLE prix DROP is_activated');
+        $this->addSql('DROP TABLE targetprice');
     }
 }

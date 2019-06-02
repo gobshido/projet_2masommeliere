@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190531110714 extends AbstractMigration
+final class Version20190602101123 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,7 @@ final class Version20190531110714 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE fos_user ADD contact_user_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE fos_user ADD CONSTRAINT FK_957A64793D41F214 FOREIGN KEY (contact_user_id) REFERENCES contactuser (id)');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_957A64793D41F214 ON fos_user (contact_user_id)');
+        $this->addSql('CREATE TABLE prestation (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, description VARCHAR(1020) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
@@ -32,8 +30,6 @@ final class Version20190531110714 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE fos_user DROP FOREIGN KEY FK_957A64793D41F214');
-        $this->addSql('DROP INDEX UNIQ_957A64793D41F214 ON fos_user');
-        $this->addSql('ALTER TABLE fos_user DROP contact_user_id');
+        $this->addSql('DROP TABLE prestation');
     }
 }
