@@ -24,15 +24,15 @@ class Prix
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $devise;
+    private $devise = '€';
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices", cascade={"persist", "remove"} )
      */
     private $prestation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Targetprice")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Targetprice", cascade={"persist", "remove"} )
      */
     private $targetprice;
 
@@ -40,6 +40,11 @@ class Prix
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isDesactivated;
+
+    public function __construct()
+    {
+        $this->setDevise('€');
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +109,11 @@ class Prix
         $this->isDesactivated = $isDesactivated;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->value);
     }
 
 }

@@ -44,7 +44,7 @@ class Prestation
     private $categorie;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Prix", mappedBy="prestation")
+     * @ORM\OneToMany(targetEntity="App\Entity\Prix", mappedBy="prestation", cascade={"persist", "remove"} )
      */
     private $prices;
 
@@ -52,7 +52,6 @@ class Prestation
     {
         $this->modules = new ArrayCollection();
         $this->cibles = new ArrayCollection();
-        $this->prices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,5 +176,10 @@ class Prestation
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->nom);
     }
 }

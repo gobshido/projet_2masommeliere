@@ -12,12 +12,37 @@
                 <td>{{ prestation.id }}</td>
             </tr>
             <tr>
+                <th>Cibles</th>
+                <td>{% for cible in prestation.cibles %}
+                        {{ cible.nom }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ prestation.categorie.nom }}</td>
+            </tr>
+            <tr>
                 <th>Nom</th>
                 <td>{{ prestation.nom }}</td>
             </tr>
             <tr>
+                <th>Modules</th>
+                <td>{% for module in prestation.modules %}
+                        {{ module.nom }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
                 <th>Description</th>
                 <td>{{ prestation.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{% for price in prestation.prices %}
+                        <span>{{ price.value }}</span>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
