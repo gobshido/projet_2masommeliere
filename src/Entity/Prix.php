@@ -26,6 +26,16 @@ class Prix
      */
     private $devise;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prestation", inversedBy="prices")
+     */
+    private $prestation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Targetprice")
+     */
+    private $targetprice;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,4 +64,29 @@ class Prix
 
         return $this;
     }
+
+    public function getPrestation(): ?Prestation
+    {
+        return $this->prestation;
+    }
+
+    public function setPrestation(?Prestation $prestation): self
+    {
+        $this->prestation = $prestation;
+
+        return $this;
+    }
+
+    public function getTargetprice(): ?Targetprice
+    {
+        return $this->targetprice;
+    }
+
+    public function setTargetprice(?Targetprice $targetprice): self
+    {
+        $this->targetprice = $targetprice;
+
+        return $this;
+    }
+
 }
