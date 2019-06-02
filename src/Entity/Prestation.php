@@ -52,6 +52,7 @@ class Prestation
     {
         $this->modules = new ArrayCollection();
         $this->cibles = new ArrayCollection();
+//        $this->prices = new ArrayCollection();
     }
 
     public function getId(): ?int

@@ -14,7 +14,8 @@
                 <th>Nom</th>
                 <th>Modules</th>
                 <th>Description</th>
-                <th>Prix</th>
+                <th>Prix Particulier</th>
+                <th>Prix Professionnel</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -29,12 +30,20 @@
                 <td>{{ prestation.categorie.nom }}</td>
                 <td>{{ prestation.nom }}</td>
                 <td>{% for module in prestation.modules %}
-                        {{ module.nom }}
+                        <div>{{ module.nom }}</div>
                     {% endfor %}
                 </td>
                 <td>{{ prestation.description }}</td>
                 <td>{% for price in prestation.prices %}
-                        <span>{{ price.value }}</span>
+                        {% if price.targetprice.value == 0 and price.isDesactivated == false %}
+                            <span>{{ price.value }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{% for price in prestation.prices %}
+                        {% if price.targetprice.value == 10 and price.isDesactivated == false %}
+                            <span>{{ price.value }}</span>
+                        {% endif %}
                     {% endfor %}
                 </td>
                 <td>
