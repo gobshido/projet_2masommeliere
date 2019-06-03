@@ -36,9 +36,9 @@ class PrestationController extends AbstractController
         $partTargetprice = $targetpriceRepository->findOneBy(array('value'=>0));
         $proTargetprice = $targetpriceRepository->findOneBy(array('value'=>10));
         $price1 = new Prix();
-            $price1->setTargetprice($partTargetprice);
+            $price1->addTargetprice($partTargetprice);
         $price2 = new Prix();
-            $price2->setTargetprice($proTargetprice);
+            $price2->addTargetprice($proTargetprice);
         $prestation->addPrice($price1);
         $prestation->addPrice($price2);
         $form = $this->createForm(PrestationType::class, $prestation);

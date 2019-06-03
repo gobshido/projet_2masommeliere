@@ -34,16 +34,16 @@
                     {% endfor %}
                 </td>
                 <td>{{ prestation.description }}</td>
-                <td>{% for price in prestation.prices %}
-                        {% if price.targetprice.value == 0 and price.isDesactivated == false %}
+                <td>{% for price in prestation.prices if price.isDesactivated == false %}
+                        {% for targetprice in price.targetprices if targetprice.value == 0%}
                             <span>{{ price.value }}</span>
-                        {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 </td>
-                <td>{% for price in prestation.prices %}
-                        {% if price.targetprice.value == 10 and price.isDesactivated == false %}
+                <td>{% for price in prestation.prices if price.isDesactivated == false %}
+                        {% for targetprice in price.targetprices if targetprice.value == 10%}
                             <span>{{ price.value }}</span>
-                        {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 </td>
                 <td>

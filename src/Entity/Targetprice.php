@@ -59,4 +59,5 @@ class Targetprice
     {
         return sprintf('%s', $this->nom);
     }
+
 }

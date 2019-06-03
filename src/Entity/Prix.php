@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,18 +34,19 @@ class Prix
     private $prestation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Targetprice", cascade={"persist", "remove"} )
-     */
-    private $targetprice;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isDesactivated;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Targetprice")
+     */
+    private $targetprices;
+
     public function __construct()
     {
         $this->setDevise('€');
+        $this->targetprices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,18 +90,6 @@ class Prix
         return $this;
     }
 
-    public function getTargetprice(): ?Targetprice
-    {
-        return $this->targetprice;
-    }
-
-    public function setTargetprice(?Targetprice $targetprice): self
-    {
-        $this->targetprice = $targetprice;
-
-        return $this;
-    }
-
     public function getIsDesactivated(): ?bool
     {
         return $this->isDesactivated;
@@ -114,6 +105,32 @@ class Prix
     public function __toString()
     {
         return sprintf('%s', $this->value);
+    }
+
+    /**
+     * @return Collection|Targetprice[]
+     */
+    public function getTargetprices(): Collection
+    {
+        return $this->targetprices;
+    }
+
+    public function addTargetprice(Targetprice $targetprice): self
+    {
+        if (!$this->targetprices->contains($targetprice)) {
+            $this->targetprices[] = $targetprice;
+        }
+
+        return $this;
+    }
+
+    public function removeTargetprice(Targetprice $targetprice): self
+    {
+        if ($this->targetprices->contains($targetprice)) {
+            $this->targetprices->removeElement($targetprice);
+        }
+
+        return $this;
     }
 
 }

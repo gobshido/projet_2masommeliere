@@ -6,6 +6,7 @@ use App\Entity\Prix;
 use App\Entity\Targetprice;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,11 +18,9 @@ class PrixType extends AbstractType
             ->add('value')
             ->add('devise')
             ->add('isDesactivated')
-            ->add('prestation')
-            ->add('targetprice', EntityType::class, array(
-                'class'=>Targetprice::class,
-                'disabled'=>true
-            ))
+            ->add('targetprices', CollectionType::class, array(
+                'entry_type'=>TargetpriceType::class
+                ))
         ;
     }
 

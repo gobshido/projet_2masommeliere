@@ -6,7 +6,6 @@ use App\Entity\Categorie;
 use App\Entity\Cible;
 use App\Entity\Module;
 use App\Entity\Prestation;
-use App\Entity\Prix;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -39,8 +38,7 @@ class PrestationType extends AbstractType
                     'toolbar'=>'full'
                 )
             ))
-            ->add('prices'
-                , CollectionType::class, array(
+            ->add('prices', CollectionType::class, array(
                 'entry_type'=>PrixType::class,
                 'entry_options'=>array('label'=>false),
                 'label'=>' '

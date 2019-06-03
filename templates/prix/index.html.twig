@@ -12,6 +12,7 @@
                 <th>Value</th>
                 <th>Devise</th>
                 <th>IsDesactivated</th>
+                <th>Target price</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,10 @@
                 <td>{{ prix.value }}</td>
                 <td>{{ prix.devise }}</td>
                 <td>{{ prix.isDesactivated ? 'Yes' : 'No' }}</td>
+                <td>{% for targetprice in prix.targetprices %}
+                        <div>{{ targetprice.nom }}</div>
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('prix_show', {'id': prix.id}) }}">show</a>
                     <a href="{{ path('prix_edit', {'id': prix.id}) }}">edit</a>
