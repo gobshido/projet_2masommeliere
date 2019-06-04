@@ -73,7 +73,7 @@ class ActualiteController extends AbstractFOSRestController
     /**
      * Remove a Actualite resource
      * @Rest\Delete(
-     *     path="{/id}",
+     *     path="/{id}",
      *     name="actualitedelete_api")
      * @Rest\View()
      * @param Actualite $actualite
