@@ -27,7 +27,7 @@
                 <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
                 <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
                 <td><img src="{{ asset(contactuser.image.imgpath) }}" width="150px"></td>
-                <td>{{ contactuser.presentation }}</td>
+                <td>{{ contactuser.presentation |raw }}</td>
                 <td>
                     <a href="{{ path('contactuser_show', {'id': contactuser.id}) }}">show</a>
                     <a href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">edit</a>

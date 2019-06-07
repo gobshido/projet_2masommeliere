@@ -29,7 +29,7 @@ security:
             host: api\.masommeliere\.fr
             pattern: ^/
             stateless: true
-            anonymous: false
+            anonymous: true
             provider: fos_userbundle
             guard:
                 authenticators:

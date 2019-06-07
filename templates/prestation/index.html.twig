@@ -34,18 +34,32 @@
                     {% endfor %}
                 </td>
                 <td>{{ prestation.description }}</td>
-                <td>{% for price in prestation.prices if price.isDesactivated == false %}
-                        {% for targetprice in price.targetprices if targetprice.value == 0%}
-                            <span>{{ price.value }}</span>
+{#                Affichage des prix #}
+                {% for price in prestation.prices %}
+                    <td>
+                        {% for targetprice in price.targetprices%}
+                            {% if  targetprice.value == 0 %}
+                                <span>{{ price.value }}</span>
+                            {% else %}
+                                <span>{{ price.value }}</span>
+                            {% endif %}
                         {% endfor %}
-                    {% endfor %}
-                </td>
-                <td>{% for price in prestation.prices if price.isDesactivated == false %}
-                        {% for targetprice in price.targetprices if targetprice.value == 10%}
-                            <span>{{ price.value }}</span>
-                        {% endfor %}
-                    {% endfor %}
-                </td>
+                    </td>
+                {% endfor %}
+{#                  une autre version de l'affichage#}
+{#                #}
+{#                <td>{% for price in prestation.prices if price.isDesactivated == false %}#}
+{#                        {% for targetprice in price.targetprices if targetprice.value == 0 %}#}
+{#                            <span>{{ price.value }}</span>#}
+{#                        {% endfor %}#}
+{#                    {% endfor %}#}
+{#                </td>#}
+{#                <td>{% for price in prestation.prices if price.isDesactivated == false %}#}
+{#                        {% for targetprice in price.targetprices if targetprice.value == 10 %}#}
+{#                            <span>{{ price.value }}</span>#}
+{#                        {% endfor %}#}
+{#                    {% endfor %}#}
+{#                </td>#}
                 <td>
                     <a href="{{ path('prestation_show', {'id': prestation.id}) }}">show</a>
                     <a href="{{ path('prestation_edit', {'id': prestation.id}) }}">edit</a>
