@@ -1,5 +1,11 @@
-controllers:
+to_ng:
+    path: /
     host: 'masommeliere.fr'
+    defaults:
+        url: 'http://masommeliere.fr'
+
+controllers:
+    host: 'admin.masommeliere.fr'
     resource: ../../src/Controller/
     type: annotation
 

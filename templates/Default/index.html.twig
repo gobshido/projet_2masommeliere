@@ -3,8 +3,8 @@
 {% block body %}
     {% if is_granted("IS_AUTHENTICATED_FULLY") %}
         <h3>You are connected {{ app.user.username }}{% if is_granted("ROLE_ADMIN") %} as admin {% endif %}</h3>
-        <h6><a href="{{ path("fos_user_security_logout") }}">logout</a></h6>
+        <h5><a href="{{ path("fos_user_security_logout") }}">logout</a></h5>
     {% else %}
-        <h6><a href="{{ path("fos_user_security_login") }}">login</a></h6>
+        <h5><a href="{{ path("fos_user_security_login") }}">login</a></h5>
     {% endif %}
 {% endblock %}

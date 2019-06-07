@@ -96,7 +96,7 @@ class PdfController extends AbstractController
                 }catch (FileException $e){
                     echo 'pdf not found';
                 }
-                $this->removeFile($pdf->getPathrelatif());
+                $this->removeFile($pdf->getPathabsolu());
                 $pdf->setPathabsolu($this->getParameter('pdf_abs_pathabsolu').'/'.$fileName);
                 $pdf->setPathrelatif($this->getParameter('pdf_pathrelatif').'/'.$fileName);
             }
