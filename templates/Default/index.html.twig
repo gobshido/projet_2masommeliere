@@ -1,10 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-        <h3>You are connected {{ app.user.username }}{% if is_granted("ROLE_ADMIN") %} as admin {% endif %}</h3>
-        <h5><a href="{{ path("fos_user_security_logout") }}">logout</a></h5>
-    {% else %}
-        <h5><a href="{{ path("fos_user_security_login") }}">login</a></h5>
-    {% endif %}
+
+        {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+            <div class="authentification">
+                <h3 class="d-flex justify-content-center">Bienvenue {{ app.user.username }}, vous êtes connecté{% if is_granted("ROLE_ADMIN") %} en tant qu'administrateur {% endif %}</h3>
+                <h5 class="d-flex justify-content-center log"><a href="{{ path("fos_user_security_logout") }}" class="btn btn-outline-danger" role="button">Se Déconnecter</a></h5>
+            </div>
+        {% else %}
+            </div class="authentification">
+                <h5 class="d-flex justify-content-center log"><a href="{{ path("fos_user_security_login") }}" class="btn btn-outline-danger" role="button">Se Connecter</a></h5>
+            </div>
+        {% endif %}
+
 {% endblock %}

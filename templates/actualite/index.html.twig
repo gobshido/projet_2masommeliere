@@ -3,7 +3,10 @@
 {% block title %}Actualite index{% endblock %}
 
 {% block body %}
-    <h1>Actualite index</h1>
+    <div class="d-flex justify-content-between">
+        <h1>Actualite index</h1>
+        <a href="{{ path('actualite_new') }}">Create new</a>
+    </div>
 
     <table class="table">
         <thead>
@@ -48,5 +51,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('actualite_new') }}">Create new</a>
 {% endblock %}

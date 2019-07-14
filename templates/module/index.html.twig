@@ -3,7 +3,10 @@
 {% block title %}Module index{% endblock %}
 
 {% block body %}
-    <h1>Module index</h1>
+    <div class="d-flex justify-content-between title">
+        <h1>Module index</h1>
+        <a href="{{ path('module_new') }}">Create new</a>
+    </div>
 
     <table class="table">
         <thead>
@@ -21,7 +24,7 @@
                 <td>{{ module.id }}</td>
                 <td>{{ module.nom }}</td>
                 <td>{{ module.duree ? module.duree|date('H:i') : '' }}</td>
-                <td>{{ module.description }}</td>
+                <td>{{ module.description |raw }}</td>
                 <td>
                     <a href="{{ path('module_show', {'id': module.id}) }}">show</a>
                     <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
@@ -35,5 +38,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('module_new') }}">Create new</a>
 {% endblock %}

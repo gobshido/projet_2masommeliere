@@ -3,14 +3,17 @@
 {% block title %}Image index{% endblock %}
 
 {% block body %}
-    <h1>Image index</h1>
+    <div class="d-flex justify-content-between title">
+        <h1>Image index</h1>
+        <a href="{{ path('image_new') }}">Create new</a>
+    </div>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Path</th>
-                <th>Imgpath</th>
+{#                <th>Path</th>#}
+{#                <th>Imgpath</th>#}
                 <th>Image</th>
                 <th>Alt</th>
                 <th>Credit</th>
@@ -21,11 +24,11 @@
         {% for image in images %}
             <tr>
                 <td>{{ image.id }}</td>
-                <td>{{ image.path }}</td>
-                <td>{{ image.imgpath }}</td>
+{#                <td>{{ image.path }}</td>#}
+{#                <td>{{ image.imgpath }}</td>#}
                 <td><img src="{{ asset(image.imgpath) }}" width= "150px"></td>
-                <td>{{ image.alt }}</td>
-                <td>{{ image.credit }}</td>
+                <td>{{ image.alt |raw }}</td>
+                <td>{{ image.credit |raw }}</td>
                 <td>
                     <a href="{{ path('image_show', {'id': image.id}) }}">show</a>
                     <a href="{{ path('image_edit', {'id': image.id}) }}">edit</a>
@@ -39,5 +42,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('image_new') }}">Create new</a>
 {% endblock %}

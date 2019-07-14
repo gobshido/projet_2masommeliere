@@ -2,13 +2,97 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>
+            <style>
+                header{
+                    margin-bottom: 20px;
+                }
+                div ul.navbar-nav{
+                    align-content: center;
+                    width: -webkit-fill-available;
+                }
+                li a.nav-link{
+                    color: #A60815 !important;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                div.title{
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                div.authentification{
+                    height: 70vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                }
+                h5.log a{
+                    color: #A60815;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                h5.log a.btn.btn-outline-danger{
+                    border-color: #A60815;
+                }
+                h5.log a.btn.btn-outline-danger:hover{
+                    background-color: #A60815;
+                    border-color: #A60815;
+                }
+            </style>
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/"><img class="logo" src="../assets/images/logo-ma-sommeliere.jpg"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/image">Images</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/module">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/prestation">Prestations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/actualite">Actualités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contactuser">Informations personnelles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pressbook">Articles de presse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pdf">Pdf</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+        {% block body %}
+
+        {% endblock %}
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>

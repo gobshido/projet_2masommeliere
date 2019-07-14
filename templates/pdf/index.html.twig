@@ -3,7 +3,10 @@
 {% block title %}Pdf index{% endblock %}
 
 {% block body %}
-    <h1>Pdf index</h1>
+    <div class="d-flex justify-content-between title">
+        <h1>Pdf index</h1>
+        <a href="{{ path('pdf_new') }}">Create new</a>
+    </div>
 
     <table class="table">
         <thead>
@@ -35,5 +38,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('pdf_new') }}">Create new</a>
 {% endblock %}
