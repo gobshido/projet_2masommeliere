@@ -27,7 +27,7 @@
             <tr>
                 <td>{{ actualite.id }}</td>
                 <td>{{ actualite.titre }}</td>
-                <td>{{ actualite.description }}</td>
+                <td>{{ actualite.description |raw }}</td>
                 <td>{% for module in actualite.module %}
                         <div>{{ module.nom }}</div>
                     {% endfor %}
