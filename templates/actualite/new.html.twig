@@ -3,9 +3,15 @@
 {% block title %}New Actualite{% endblock %}
 
 {% block body %}
-    <h1>Create new Actualite</h1>
+    <div class="d-flex justify-content-between">
+        <h1>Créer une actualité</h1>
+        <a class="admin-link" href="{{ path('actualite_index') }}">
+            <button class="btn admin-btn">retour</button>
+        </a>
+    </div>
+
 
     {{ include('actualite/_form.html.twig') }}
 
-    <a href="{{ path('actualite_index') }}">back to list</a>
+
 {% endblock %}

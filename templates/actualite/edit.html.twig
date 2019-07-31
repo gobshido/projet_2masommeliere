@@ -7,7 +7,9 @@
 
     {{ include('actualite/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('actualite_index') }}">back to list</a>
+    <a class="admin-link" href="{{ path('actualite_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
 
     {{ include('actualite/_delete_form.html.twig') }}
 {% endblock %}

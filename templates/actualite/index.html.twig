@@ -5,12 +5,14 @@
 {% block body %}
     <div class="d-flex justify-content-between">
         <h1>Actualite index</h1>
-        <a href="{{ path('actualite_new') }}">Create new</a>
+        <a class="admin-link" href="{{ path('actualite_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
 
     <table class="table">
         <thead>
-            <tr>
+            <tr class="row-center">
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
@@ -29,7 +31,12 @@
                 <td>{{ actualite.titre }}</td>
                 <td>{{ actualite.description |raw }}</td>
                 <td>{% for module in actualite.module %}
-                        <div>{{ module.nom }}</div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">{{ module.nom }}</div>
+                            </div>
+                        </div>
+
                     {% endfor %}
                 </td>
                 <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>
@@ -38,14 +45,18 @@
                 <td>{% if actualite.image %}
                         <img src="{{ asset(actualite.image.imgpath) }}" width="150px" height="150px">
                     {% endif %}</td>
-                <td>
-                    <a href="{{ path('actualite_show', {'id': actualite.id}) }}">show</a>
-                    <a href="{{ path('actualite_edit', {'id': actualite.id}) }}">edit</a>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('actualite_show', {'id': actualite.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('actualite_edit', {'id': actualite.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

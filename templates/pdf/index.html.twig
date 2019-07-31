@@ -14,7 +14,6 @@
                 <th>Id</th>
                 <th>Chemin relatif</th>
                 <th>Chemin absolu</th>
-                <th>Pdf</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
                 <td>{{ pdf.id }}</td>
                 <td>{{ pdf.pathrelatif }}</td>
                 <td>{{ pdf.pathabsolu }}</td>
-                <td>{{ pdf.file }}</td>
                 <td>
                     <a href="{{ path('pdf_show', {'id': pdf.id}) }}">show</a>
                     <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
