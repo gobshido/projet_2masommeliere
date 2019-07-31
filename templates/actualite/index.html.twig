@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Actualite index{% endblock %}
+{% block title %}Actualité index{% endblock %}
 
 {% block body %}
     <div class="d-flex justify-content-between">
-        <h1>Actualite index</h1>
+        <h1>Actualité index</h1>
         <a class="admin-link" href="{{ path('actualite_new') }}">
             <button class="btn admin-btn" role="button">Creer</button>
         </a>
@@ -36,7 +36,6 @@
                                 <div class="col-6">{{ module.nom }}</div>
                             </div>
                         </div>
-
                     {% endfor %}
                 </td>
                 <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>

@@ -100,6 +100,39 @@
                     margin-top: 10px;
                     margin-bottom: 10px;
                 }
+                div#prestation_modules input, div#prestation_cibles input{
+                    margin: 5px;
+                    height: 15px;
+                    width: 15px;
+                }
+                div#prestation_modules label{
+                    width: 28%;
+                    border: solid 1px black;
+                    margin-right: 49px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                div#prestation_cibles label, label#prestation_categorie{
+                    width: 20%;
+                    border: solid 1px black;
+                    margin-right: 49px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                select#prestation_categorie, label, input#prestation_nom, input#prestation_prices_0_value {
+                    margin: 5px;
+                }
+                label.required, #prestation_prices_0_targetprices_0 div label,
+                input#prestation_prices_1_targetprices_0_value, input#prestation_prices_0_targetprices_0_value,
+                #prestation_prices_1_targetprices_0 div label{
+                    display: none;
+                }
+                div#prestation_prices_0, div#prestation_prices_1 {
+                    text-align: center;
+                }
+                div#prestation div label.required {
+                    display: block;
+                }
 
             </style>
         {% endblock %}
