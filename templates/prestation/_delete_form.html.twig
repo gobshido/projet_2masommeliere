@@ -1,5 +1,5 @@
 <form class="form-delete" method="post" action="{{ path('prestation_delete', {'id': prestation.id}) }}"
-      onsubmit="return confirm('Confirmer la suppression de l\'actualité ?');">
+      onsubmit="return confirm('Confirmer la suppression de la prestation ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ prestation.id) }}">
     <button class="btn admin-btn">supprimer</button>

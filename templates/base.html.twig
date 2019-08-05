@@ -55,14 +55,19 @@
                 .row-center{
                     text-align: center;
                 }
+                .t-body-center{
+                    text-align: center;
+                }
                 .data-center{
                     display: flex;
                     flex-direction: column;
                     text-align: center;
+                    align-items: center;
                 }
                 .admin-link{
                     background: #e5e5e5;
                     margin: 10px;
+                    min-width: 100px;
                 }
                 .admin-btn{
                     color: #A60815;
@@ -85,8 +90,15 @@
                     display: flex;
                     justify-content: space-around;
                 }
+                .cat-edit-div{
+                    text-align: end;
+                }
+                .cat-edit-btn{
+                    width: 100px;
+                }
                 .form-delete{
                     position: absolute;
+                    margin-left: 10px;
                 }
                 div#actualite_module input{
                     margin: 5px;
@@ -122,7 +134,7 @@
                 select#prestation_categorie, label, input#prestation_nom, input#prestation_prices_0_value {
                     margin: 5px;
                 }
-                label.required, #prestation_prices_0_targetprices_0 div label,
+                #prestation_prices_0_targetprices_0 div label,
                 input#prestation_prices_1_targetprices_0_value, input#prestation_prices_0_targetprices_0_value,
                 #prestation_prices_1_targetprices_0 div label{
                     display: none;

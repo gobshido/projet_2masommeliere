@@ -3,10 +3,15 @@
 {% block title %}Module{% endblock %}
 
 {% block body %}
+<div class="d-flex justify-content-between">
     <h1>Module</h1>
+    <a class="admin-link" href="{{ path('module_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
 
     <table class="table">
-        <tbody>
+        <tbody class="t-body-center">
             <tr>
                 <th>Id</th>
                 <td>{{ module.id }}</td>
@@ -26,9 +31,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('module_index') }}">back to list</a>
 
-    <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
-
+<div class="edit-btn">
+    <a class="admin-link" href="{{ path('module_edit', {'id': module.id}) }}">
+        <button class="btn admin-btn">editer</button>
+    </a>
+</div>
+<div>
     {{ include('module/_delete_form.html.twig') }}
+</div>
 {% endblock %}

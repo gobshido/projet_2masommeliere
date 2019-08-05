@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Catégorie index{% endblock %}
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Categorie index</h1>
-        <a href="{{ path('categorie_new') }}">Create new</a>
+        <h1>Catégorie index</h1>
+        <a class="admin-link" href="{{ path('categorie_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="row-center">
                 <th>Id</th>
                 <th>Nom</th>
                 <th>actions</th>
@@ -20,14 +22,18 @@
             <tr>
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.nom }}</td>
-                <td>
-                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('categorie_show', {'id': categorie.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('categorie_edit', {'id': categorie.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -5,12 +5,14 @@
 {% block body %}
     <div class="d-flex justify-content-between title">
         <h1>Module index</h1>
-        <a href="{{ path('module_new') }}">Create new</a>
+        <a href="{{ path('module_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
 
     <table class="table">
         <thead>
-            <tr>
+            <tr class="row-center">
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Duree</th>
@@ -25,14 +27,18 @@
                 <td>{{ module.nom }}</td>
                 <td>{{ module.duree ? module.duree|date('H:i') : '' }}</td>
                 <td>{{ module.description |raw }}</td>
-                <td>
-                    <a href="{{ path('module_show', {'id': module.id}) }}">show</a>
-                    <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('module_show', {'id': module.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('module_edit', {'id': module.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

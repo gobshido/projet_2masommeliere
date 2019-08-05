@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Module{% endblock %}
+{% block title %}Nouveau Module{% endblock %}
 
 {% block body %}
-    <h1>Create new Module</h1>
-
+<div class="d-flex justify-content-between">
+    <h1>Créer un Module</h1>
+    <a class="admin-link" href="{{ path('module_index') }}">
+        <button class="btn admin-btn">retour</button>
+    </a>
+</div>
     {{ include('module/_form.html.twig') }}
 
-    <a href="{{ path('module_index') }}">back to list</a>
 {% endblock %}
