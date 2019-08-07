@@ -56,6 +56,7 @@ class PressbookController extends AbstractFOSRestController
     public function new(Request $request):View
     {
         $pressbook = new Pressbook();
+        $pressbook->setTitle($request->get('title'));
         $pressbook->setUrl($request->get('url'));
         $pressbook->setImage($request->get('image'));
         $em = $this->getDoctrine()->getManager();
@@ -94,6 +95,7 @@ class PressbookController extends AbstractFOSRestController
     public function edit(Request $request, Pressbook $pressbook):View
     {
         if ($pressbook){
+            $pressbook->setTitle($request->get('title'));
             $pressbook->setUrl($request->get('url'));
             $pressbook->setImage($request->get('image'));
             $em = $this->getDoctrine()->getManager();

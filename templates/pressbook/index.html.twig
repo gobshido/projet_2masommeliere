@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Titre</th>
                 <th>Url</th>
                 <th>Image</th>
                 <th>actions</th>
@@ -20,6 +21,7 @@
         {% for pressbook in pressbooks %}
             <tr>
                 <td>{{ pressbook.id }}</td>
+                <td>{{ pressbook.title }}</td>
                 <td>{{ pressbook.url }}</td>
                 <td><img src="{{ asset(pressbook.image.imgpath) }}" width="150px" height="150px"></td>
                 <td>
