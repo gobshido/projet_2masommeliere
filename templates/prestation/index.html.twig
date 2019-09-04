@@ -12,7 +12,7 @@
     <table class="table">
         <thead>
             <tr class="row-center">
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Cibles</th>
                 <th>Catégorie</th>
                 <th>Nom</th>
@@ -26,19 +26,19 @@
         <tbody>
         {% for prestation in prestations %}
             <tr>
-                <td>{{ prestation.id }}</td>
+{#                <td>{{ prestation.id }}</td>#}
                 <td>{% for cible in prestation.cibles %}
                         {{ cible.nom }}
                     {% endfor %}
                 </td>
                 <td>{{ prestation.categorie.nom }}</td>
                 <td>{{ prestation.nom }}</td>
-                <td>{% for module in prestation.modules %}
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">{{ module.nom }}</div>
-                            </div>
-                        </div>
+                <td class="mod">{% for module in prestation.modules %}
+{#                        <div class="container">#}
+{#                            <div class="row">#}
+                                <div class="col">{{ module.nom }}</div>
+{#                            </div>#}
+{#                        </div>#}
                     {% endfor %}
                 </td>
                 <td>{{ prestation.description |raw }}</td>
