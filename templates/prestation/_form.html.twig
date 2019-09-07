@@ -1,4 +1,5 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_label (form.nom, 'Particuliers') }}
+    {{ form_widget(form.prices) }}
     <button class="btn admin-btn admin-valid">{{ button_label|default('valider') }}</button>
 {{ form_end(form) }}

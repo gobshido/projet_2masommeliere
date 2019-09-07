@@ -1,0 +1,142 @@
+.temp{
+    height: 200px;
+    width: 200px;
+}
+header{
+    margin-bottom: 20px;
+}
+div ul.navbar-nav{
+    align-content: center;
+    width: 100%;
+}
+li a.nav-link{
+    color: #A60815 !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+div.title{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+div.authentification{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+h1{
+    margin-left: 10px;
+}
+h5.log a{
+    color: #A60815;
+    font-size: 16px;
+    font-weight: bold;
+}
+h5.log a.btn.btn-outline-danger{
+    border-color: #A60815;
+}
+h5.log a.btn.btn-outline-danger:hover{
+    background-color: #A60815;
+    border-color: #A60815;
+}
+.table td{
+    vertical-align: middle;
+}
+.mod{
+    width: 250px;
+}
+.row-center{
+    /*text-align: center;*/
+}
+.t-body-center{
+    text-align: center;
+}
+.data-center{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.admin-link{
+    background: #e5e5e5;
+    margin: 10px;
+    min-width: 100px;
+}
+.admin-btn{
+    color: #A60815;
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+    text-transform: uppercase;
+}
+.admin-btn:hover{
+    background: #A60815;
+    color: white;
+}
+.admin-valid{
+    max-width: fit-content;
+    margin: 10px;
+    position: relative;
+    left: 50%;
+}
+.edit-btn{
+    display: flex;
+    justify-content: space-around;
+}
+.cat-edit-div{
+    text-align: end;
+}
+.cat-edit-btn{
+    width: 100px;
+}
+.form-delete{
+    position: absolute;
+    margin-left: 10px;
+}
+div#actualite_module input{
+    margin: 5px;
+    height: 15px;
+    width: 15px;
+}
+div#actualite_module label{
+    width: 20%;
+    border: solid 1px black;
+    margin-right: 49px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div#prestation_modules input, div#prestation_cibles input{
+    margin: 5px;
+    height: 15px;
+    width: 15px;
+}
+div#prestation_modules label{
+    width: 28%;
+    border: solid 1px black;
+    margin-right: 49px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div#prestation_cibles label, label#prestation_categorie{
+    width: 20%;
+    border: solid 1px black;
+    margin-right: 49px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+select#prestation_categorie, label, input#prestation_nom, input#prestation_prices_0_value {
+    margin: 5px;
+}
+#prestation_prices_0_targetprices_0 div label,
+input#prestation_prices_1_targetprices_0_value, input#prestation_prices_0_targetprices_0_value,
+#prestation_prices_1_targetprices_0 div label{
+    display: none;
+}
+div#prestation_prices_0, div#prestation_prices_1 {
+    text-align: center;
+}
+div#prestation div label.required {
+    display: block;
+}

@@ -13,17 +13,17 @@
     <table class="table">
         <thead>
             <tr class="row-center">
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Duree</th>
                 <th>Description</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for module in modules %}
             <tr>
-                <td>{{ module.id }}</td>
+{#                <td>{{ module.id }}</td>#}
                 <td>{{ module.nom }}</td>
                 <td>{{ module.duree ? module.duree|date('H:i') : '' }}</td>
                 <td>{{ module.description |raw }}</td>

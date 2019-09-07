@@ -20,7 +20,7 @@
                 <th>Description</th>
                 <th>Prix Particulier</th>
                 <th>Prix Professionnel</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,18 +34,13 @@
                 <td>{{ prestation.categorie.nom }}</td>
                 <td>{{ prestation.nom }}</td>
                 <td class="mod">{% for module in prestation.modules %}
-{#                        <div class="container">#}
-{#                            <div class="row">#}
-                                <div class="col">{{ module.nom }}</div>
-{#                            </div>#}
-{#                        </div>#}
+                    <div>{{ module.nom }}</div>
                     {% endfor %}
                 </td>
                 <td>{{ prestation.description |raw }}</td>
 {#                Affichage des prix #}
                 {% for price in prestation.prices %}
-                    <td>
-                        {% for targetprice in price.targetprices%}
+                    <td>{% for targetprice in price.targetprices%}
                             {% if  targetprice.value == 0 %}
                                 <span>{{ price.value }}</span>
                             {% else %}

@@ -11,19 +11,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Target price</th>
                 <th>Value</th>
                 <th>Devise</th>
                 <th>IsDesactivated</th>
-
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for prix in prixes %}
             <tr>
-                <td>{{ prix.id }}</td>
+{#                <td>{{ prix.id }}</td>#}
                 <td>{% for targetprice in prix.targetprices %}
                         <div>{{ targetprice.nom }}</div>
                     {% endfor %}

@@ -11,16 +11,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Value</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for targetprice in targetprices %}
             <tr>
-                <td>{{ targetprice.id }}</td>
+{#                <td>{{ targetprice.id }}</td>#}
                 <td>{{ targetprice.nom }}</td>
                 <td>{{ targetprice.value }}</td>
                 <td>
@@ -30,7 +30,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

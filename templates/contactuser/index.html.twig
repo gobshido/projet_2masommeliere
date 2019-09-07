@@ -11,20 +11,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Telephone</th>
                 <th>Jour ouverture</th>
                 <th>Heure ouverture</th>
                 <th>Heure fermeture</th>
                 <th>Image</th>
                 <th>Presentation</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for contactuser in contactusers %}
             <tr>
-                <td>{{ contactuser.id }}</td>
+{#                <td>{{ contactuser.id }}</td>#}
                 <td>{{ contactuser.telephone }}</td>
                 <td>{{ contactuser.jourOuverture }}</td>
                 <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>

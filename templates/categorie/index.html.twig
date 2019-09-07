@@ -12,15 +12,15 @@
     <table class="table">
         <thead>
             <tr class="row-center">
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for categorie in categories %}
             <tr>
-                <td>{{ categorie.id }}</td>
+{#                <td>{{ categorie.id }}</td>#}
                 <td>{{ categorie.nom }}</td>
                 <td class="data-center">
                     <a class="admin-link" href="{{ path('categorie_show', {'id': categorie.id}) }}">

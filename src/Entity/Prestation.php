@@ -24,7 +24,7 @@ class Prestation
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=1020)
+     * @ORM\Column(type="string", length=3060)
      */
     private $description;
 
