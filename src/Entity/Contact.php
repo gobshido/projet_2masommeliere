@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -39,19 +39,20 @@ class Contact
 
     /**
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="sent", type="date")
      */
-    private $created_at;
+    private $sent;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie")
      */
-    private $categories;
+    private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Cible", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cible")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $cibles;
+    private $cible;
 
     public function getId(): ?int
     {
@@ -106,38 +107,38 @@ class Contact
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getSent(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->sent;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setSent(\DateTimeInterface $sent): self
     {
-        $this->created_at = $created_at;
+        $this->sent = $sent;
 
         return $this;
     }
 
-    public function getCategories(): ?Categorie
+    public function getCategory(): ?Categorie
     {
-        return $this->categories;
+        return $this->category;
     }
 
-    public function setCategories(?Categorie $categories): self
+    public function setCategory(?Categorie $category): self
     {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }
 
-    public function getCibles(): ?Cible
+    public function getCible(): ?Cible
     {
-        return $this->cibles;
+        return $this->cible;
     }
 
-    public function setCibles(?Cible $cibles): self
+    public function setCible(?Cible $cible): self
     {
-        $this->cibles = $cibles;
+        $this->cible = $cible;
 
         return $this;
     }

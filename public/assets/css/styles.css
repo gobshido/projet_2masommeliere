@@ -47,37 +47,30 @@ h5.log a.btn.btn-outline-danger:hover{
 .mod{
     width: 250px;
 }
-.row-center{
-    /*text-align: center;*/
-}
 .t-body-center{
     text-align: center;
 }
 .data-center{
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
 }
 .admin-link{
     background: #e5e5e5;
     margin: 10px;
-    min-width: 100px;
 }
 .admin-btn{
     color: #A60815;
     font-weight: 600;
     text-decoration: none;
-    width: 100%;
     text-transform: uppercase;
+    width: 120px;
 }
 .admin-btn:hover{
     background: #A60815;
     color: white;
 }
 .admin-valid{
-    max-width: fit-content;
-    margin: 10px;
     position: relative;
     left: 50%;
 }
@@ -89,7 +82,7 @@ h5.log a.btn.btn-outline-danger:hover{
     text-align: end;
 }
 .cat-edit-btn{
-    width: 100px;
+    width: 120px;
 }
 .form-delete{
     position: absolute;

@@ -60,3 +60,4 @@ security:
         - { path: ^/prestation, role: ROLE_ADMIN, host: admin\.masommeliere\.fr }
         - { path: ^/prix, role: ROLE_ADMIN, host: admin\.masommeliere\.fr }
         - { path: ^/targetprice, role: ROLE_ADMIN, host: admin\.masommeliere\.fr }
+        - { path: ^/contact, role: ROLE_ADMIN, host: admin\.masommeliere\.fr }

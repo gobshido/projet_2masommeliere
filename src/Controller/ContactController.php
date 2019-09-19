@@ -58,27 +58,27 @@ class ContactController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
-//     */
-//    public function edit(Request $request, Contact $contact): Response
-//    {
-//        $form = $this->createForm(ContactType::class, $contact);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $this->getDoctrine()->getManager()->flush();
-//
-//            return $this->redirectToRoute('contact_index', [
-//                'id' => $contact->getId(),
-//            ]);
-//        }
-//
-//        return $this->render('contact/edit.html.twig', [
-//            'contact' => $contact,
-//            'form' => $form->createView(),
-//        ]);
-//    }
+    /**
+     * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Contact $contact): Response
+    {
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('contact_index', [
+                'id' => $contact->getId(),
+            ]);
+        }
+
+        return $this->render('contact/edit.html.twig', [
+            'contact' => $contact,
+            'form' => $form->createView(),
+        ]);
+    }
 
     /**
      * @Route("/{id}", name="contact_delete", methods={"DELETE"})

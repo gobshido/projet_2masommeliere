@@ -3,7 +3,9 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <h1>Contact</h1>
+    <div class="d-flex justify-content-center title">
+        <h1>Message</h1>
+    </div>
 
     <table class="table">
         <tbody>
@@ -12,29 +14,39 @@
 {#                <td>{{ contact.id }}</td>#}
 {#            </tr>#}
             <tr>
+                <th>Nom</th>
+                <td>{{ contact.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ contact.firstname }}</td>
+            </tr>
+            <tr>
                 <th>Email</th>
                 <td>{{ contact.email }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
-                <td>{{ contact.lastname }}</td>
+                <th>Cible</th>
+                <td>{{ contact.cible }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
-                <td>{{ contact.firstname }}</td>
+                <th>Catégorie</th>
+                <td>{{ contact.category }}</td>
             </tr>
             <tr>
                 <th>Message</th>
                 <td>{{ contact.message }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
-                <td>{{ contact.createdAt ? contact.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Date d'envoi</th>
+                <td>{{ contact.sent ? contact.sent|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('contact_index') }}">back to list</a>
+    <a class="admin-link" href="{{ path('contact_index') }}">
+        <button class="btn admin-btn">retour</button>
+    </a>
 
 {#    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>#}
 
