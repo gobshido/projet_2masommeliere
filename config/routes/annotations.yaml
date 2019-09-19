@@ -2,7 +2,7 @@ to_ng:
     path: /
     host: 'masommeliere.fr'
     defaults:
-        url: 'http://masommeliere.fr'
+        url: 'https://masommeliere.fr'
 
 controllers:
     host: 'admin.masommeliere.fr'
