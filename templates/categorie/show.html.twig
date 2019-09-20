@@ -11,22 +11,27 @@
     </div>
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categorie.id }}</td>
-            </tr>
-            <tr>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ categorie.id }}</td>#}
+{#            </tr>#}
+            <tr class="text-center">
                 <th>Nom</th>
                 <td>{{ categorie.nom }}</td>
             </tr>
         </tbody>
     </table>
-    <div class="cat-edit-div">
-        <a class="admin-link" href="{{ path('categorie_edit', {'id': categorie.id}) }}">
-            <button class="btn admin-btn cat-edit-btn">editer</button>
-        </a>
+    <div class="container">
+        <div class="row text-center mb-3">
+            <div class="col">
+                <a class="admin-link" href="{{ path('categorie_edit', {'id': categorie.id}) }}">
+                    <button class="btn admin-btn">editer</button>
+                </a>
+            </div>
+            <div class="col">
+                {{ include('categorie/_delete_form.html.twig') }}
+            </div>
+        </div>
     </div>
-    <div>
-        {{ include('categorie/_delete_form.html.twig') }}
-    </div>
+
 {% endblock %}
