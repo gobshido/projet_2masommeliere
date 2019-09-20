@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cible{% endblock %}
+{% block title %}Nouvelle Cible{% endblock %}
 
 {% block body %}
-    <h1>Create new Cible</h1>
+    <div class="d-flex justify-content-between">
+        <h1>Créer une Cible</h1>
+        <a class="admin-link" href="{{ path('cible_index') }}">
+            <button class="btn admin-btn">retour</button>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                {{ include('cible/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 
-    {{ include('cible/_form.html.twig') }}
-
-    <a href="{{ path('cible_index') }}">back to list</a>
 {% endblock %}

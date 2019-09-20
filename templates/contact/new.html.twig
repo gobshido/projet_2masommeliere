@@ -3,9 +3,18 @@
 {% block title %}New Contact{% endblock %}
 
 {% block body %}
-    <h1>Create new Contact</h1>
+    <div class="d-flex justify-content-between">
+        <h1>Créer un Message</h1>
+        <a class="admin-link" href="{{ path('contact_index') }}">
+            <button class="btn admin-btn">retour</button>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                {{ include('contact/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 
-    {{ include('contact/_form.html.twig') }}
-
-    <a href="{{ path('contact_index') }}">back to list</a>
 {% endblock %}

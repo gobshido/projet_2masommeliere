@@ -3,9 +3,17 @@
 {% block title %}New Pressbook{% endblock %}
 
 {% block body %}
-    <h1>Create new Pressbook</h1>
-
-    {{ include('pressbook/_form.html.twig') }}
-
-    <a href="{{ path('pressbook_index') }}">back to list</a>
+    <div class="d-flex justify-content-between">
+        <h1>Intégrer un article de presse</h1>
+        <a class="admin-link" href="{{ path('pressbook_index') }}">
+            <button class="btn admin-btn">retour</button>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                {{ include('pressbook/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

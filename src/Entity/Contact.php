@@ -112,7 +112,7 @@ class Contact
         return $this->sent;
     }
 
-    public function setSent(\DateTimeInterface $sent): self
+    public function setSent(?\DateTimeInterface $sent): self
     {
         $this->sent = $sent;
 
