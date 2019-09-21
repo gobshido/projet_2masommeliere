@@ -4,13 +4,14 @@
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Pdf index</h1>
-        <a href="{{ path('pdf_new') }}">Create new</a>
+        <h1>Pdf</h1>
+        <a class="admin-link" href="{{ path('pdf_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
-
     <table class="table">
         <thead>
-            <tr>
+            <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Chemin relatif</th>
                 <th>Chemin absolu</th>
@@ -19,18 +20,22 @@
         </thead>
         <tbody>
         {% for pdf in pdfs %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ pdf.id }}</td>#}
                 <td>{{ pdf.pathrelatif }}</td>
                 <td>{{ pdf.pathabsolu }}</td>
-                <td>
-                    <a href="{{ path('pdf_show', {'id': pdf.id}) }}">show</a>
-                    <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('pdf_show', {'id': pdf.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('pdf_edit', {'id': pdf.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -4,26 +4,28 @@
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Contactuser index</h1>
-        <a href="{{ path('contactuser_new') }}">Create new</a>
+        <h1>Informations personnelles</h1>
+        <a class="admin-link" href="{{ path('contactuser_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
 
     <table class="table">
         <thead>
-            <tr>
+            <tr class="text-center">
 {#                <th>Id</th>#}
-                <th>Telephone</th>
+                <th>Téléphone</th>
                 <th>Jour ouverture</th>
                 <th>Heure ouverture</th>
                 <th>Heure fermeture</th>
                 <th>Image</th>
-                <th>Presentation</th>
+                <th>Présentation</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for contactuser in contactusers %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ contactuser.id }}</td>#}
                 <td>{{ contactuser.telephone }}</td>
                 <td>{{ contactuser.jourOuverture }}</td>
@@ -31,14 +33,18 @@
                 <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
                 <td><img src="{{ asset(contactuser.image.imgpath) }}" width="150px"></td>
                 <td>{{ contactuser.presentation |raw }}</td>
-                <td>
-                    <a href="{{ path('contactuser_show', {'id': contactuser.id}) }}">show</a>
-                    <a href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">edit</a>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('contactuser_show', {'id': contactuser.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

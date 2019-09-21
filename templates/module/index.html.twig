@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Module index</h1>
+        <h1>Modules</h1>
         <a href="{{ path('module_new') }}">
             <button class="btn admin-btn" role="button">Creer</button>
         </a>
@@ -12,17 +12,17 @@
 
     <table class="table">
         <thead>
-            <tr class="row-center">
+            <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Nom</th>
-                <th>Duree</th>
+                <th>Durée</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for module in modules %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ module.id }}</td>#}
                 <td>{{ module.nom }}</td>
                 <td>{{ module.duree ? module.duree|date('H:i') : '' }}</td>

@@ -4,12 +4,14 @@
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Pressbook index</h1>
-        <a href="{{ path('pressbook_new') }}">Create new</a>
+        <h1>Articles de presse</h1>
+        <a class="admin-link" href="{{ path('pressbook_new') }}">
+            <button class="btn admin-btn" role="button">Creer</button>
+        </a>
     </div>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Titre</th>
                 <th>Url</th>
@@ -19,19 +21,23 @@
         </thead>
         <tbody>
         {% for pressbook in pressbooks %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ pressbook.id }}</td>#}
                 <td>{{ pressbook.title }}</td>
                 <td>{{ pressbook.url }}</td>
-                <td><img src="{{ asset(pressbook.image.imgpath) }}" width="150px" height="150px"></td>
-                <td>
-                    <a href="{{ path('pressbook_show', {'id': pressbook.id}) }}">show</a>
-                    <a href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">edit</a>
+                <td><img src="{{ asset(pressbook.image.imgpath) }}" alt="{{ asset(pressbook.image.alt) }}" width="150px" height="150px"></td>
+                <td class="data-center">
+                    <a class="admin-link" href="{{ path('pressbook_show', {'id': pressbook.id}) }}">
+                        <button class="btn admin-btn" role="button">Voir</button>
+                    </a>
+                    <a class="admin-link" href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">
+                        <button class="btn admin-btn" role="button">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="7">Données non trouvées</td>
             </tr>
         {% endfor %}
         </tbody>

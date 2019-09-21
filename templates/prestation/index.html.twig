@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="d-flex justify-content-between title">
-        <h1>Prestation index</h1>
+        <h1>Prestations</h1>
         <a class="admin-link" href="{{ path('prestation_new') }}">
             <button class="btn admin-btn" role="button">Creer</button>
         </a>
@@ -49,7 +49,6 @@
                         {% endfor %}
                     </td>
                 {% endfor %}
-
                 <td class="data-center">
                     <a class="admin-link" href="{{ path('prestation_show', {'id': prestation.id}) }}">
                         <button class="btn admin-btn" role="button">Voir</button>
