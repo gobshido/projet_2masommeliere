@@ -2,7 +2,8 @@
 
 namespace App\ApiController;
 
-use App\Repository\ContactRepository;
+use App\Repository\CategorieRepository;
+use App\Repository\CibleRepository;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
@@ -18,123 +19,27 @@ use App\Form\ContactType;
 class ContactController extends AbstractFOSRestController
 {
     /**
-     * Retrieves a collection of Contact resource
-     * @Rest\Route(
-     *     "/",
-     *     name="contact_api", methods={ "GET" })
-     * @Rest\View()
-     */
-    public function index(ContactRepository $contactRepository):View
-    {
-        $contact = $contactRepository->findAll();
-        //In case our GET was a success we need to return de 200 HTTP_OK
-        //response with the collection of actualite object
-        return View::create($contact, Response::HTTP_OK);
-    }
-
-    /**
-     * Retrieves a Contact resource
-     * @Rest\Get(
-     *     path="/{id}",
-     *     name="contactshow_api")
-     * @Rest\View()
-     * @param Contact $contact
-     * @return View
-     */
-    public function show(Contact $contact):View
-    {
-        return View::create($contact, Response::HTTP_OK);
-    }
-
-    /**
      * Creates a Contact resource
      * @Rest\Post(
      *     path="/new",
      *     name="contactnew_api")
-     * @param Request $request
-     * @Rest\View()
-     * @return View
      */
-    public function new(Request $request):View
+    public function new(Request $request, CategorieRepository $categorieRepository, CibleRepository $cibleRepository):View
     {
+        $categoryrequest= $categorieRepository->find($request->get('category'));
+        $ciblerequest= $cibleRepository->find($request->get('cible'));
         $contact = new Contact();
         $contact->setEmail($request->get('email'));
         $contact->setLastname($request->get('lastname'));
         $contact->setFirstname($request->get('firstname'));
         $contact->setMessage($request->get('message'));
         $contact->setSent($request->get('sent'));
-        $contact->setCategory($request->get('category'));
-        $contact->setCible($request->get('cible'));
+        $contact->setCategory($categoryrequest);
+        $contact->setCible($ciblerequest);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($contact);
         $em->flush();
         return View::create($contact, Response::HTTP_CREATED);
-    }
-
-    /**
-     * Remove a Contact resource
-     * @Rest\Delete(
-     *     path="/{id}",
-     *     name="contactdelete_api")
-     * @Rest\View()
-     * @param Contact $contact
-     * @return View
-     */
-    public function delete(Contact $contact): View
-    {
-        if($contact){
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($contact);
-            $em->flush();
-        }
-        return View::create([], Response::HTTP_NO_CONTENT);
-    }
-
-    /**
-     * Creates a Contact resource
-     * @Rest\Put(
-     *     path="/{id}",
-     *     name="contactedit_api")
-     * @param Request $request
-     * @Rest\View()
-     * @return View
-     */
-    public function edit(Request $request, Contact $contact):View
-    {
-        if ($contact){
-            $contact->setEmail($request->get('email'));
-            $contact->setLastname($request->get('lastname'));
-            $contact->setFirstname($request->get('firstname'));
-            $contact->setMessage($request->get('message'));
-            $contact->setSent($request->get('sent'));
-            $contact->setCategory($request->get('category'));
-            $contact->setCible($request->get('cible'));
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($contact);
-            $em->flush();
-        }
-        return View::create($contact, Response::HTTP_OK);
-    }
-
-    /**
-     * Creates a Contact resource
-     * @Rest\Patch(
-     *     path="/{id}",
-     *     name="contactpatch_api")
-     * @param Request $request
-     * @param Contact $contact
-     * @Rest\View()
-     * @return View
-     */
-    public function patch(Request $request, Contact $contact):View
-    {
-        if ($contact){
-            $form= $this->createForm(ContactType::class, $contact);
-            $form->submit($request->request->all(), false);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($contact);
-            $em->flush();
-        }
-        return View::create($contact, Response::HTTP_OK);
     }
 }
