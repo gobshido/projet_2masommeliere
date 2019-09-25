@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Prestation index{% endblock %}
+{% block title %}Prestations{% endblock %}
 
 {% block body %}
     <div class="d-flex justify-content-between title">
@@ -11,7 +11,7 @@
     </div>
     <table class="table">
         <thead>
-            <tr class="row-center">
+            <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Cibles</th>
                 <th>Catégorie</th>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         {% for prestation in prestations %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ prestation.id }}</td>#}
                 <td>{% for cible in prestation.cibles %}
                         {{ cible.nom }}

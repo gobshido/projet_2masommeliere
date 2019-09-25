@@ -3,32 +3,42 @@
 {% block title %}Pdf{% endblock %}
 
 {% block body %}
+<div class="d-flex justify-content-between title">
     <h1>Pdf</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ pdf.id }}</td>
-            </tr>
-            <tr>
-                <th>Chemin relatif</th>
-                <td>{{ pdf.pathrelatif }}</td>
-            </tr>
-            <tr>
-                <th>Chemin absolu</th>
-                <td>{{ pdf.pathabsolu }}</td>
-            </tr>
-            <tr>
-                <th>Pdf</th>
-                <td>{{ pdf.file }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('pdf_index') }}">back to list</a>
-
-    <a href="{{ path('pdf_edit', {'id': pdf.id}) }}">edit</a>
-
-    {{ include('pdf/_delete_form.html.twig') }}
+    <a class="admin-link" href="{{ path('pdf_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<table class="table">
+    <tbody>
+{#        <tr>#}
+{#            <th>Id</th>#}
+{#            <td>{{ pdf.id }}</td>#}
+{#        </tr>#}
+        <tr class="text-center">
+            <th>Chemin relatif</th>
+            <td>{{ pdf.pathrelatif }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Chemin absolu</th>
+            <td>{{ pdf.pathabsolu }}</td>
+        </tr>
+{#        <tr class="text-center">#}
+{#            <th>Pdf</th>#}
+{#            <td>{{ pdf.file }}</td>#}
+{#        </tr>#}
+    </tbody>
+</table>
+<div class="container">
+    <div class="row text-center mb-3">
+        <div class="col">
+            <a class="admin-link" href="{{ path('pdf_edit', {'id': pdf.id}) }}">
+                <button class="btn admin-btn">editer</button>
+            </a>
+        </div>
+        <div class="col">
+            {{ include('pdf/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -3,55 +3,61 @@
 {% block title %}Actualité{% endblock %}
 
 {% block body %}
-    <h1>Actualité</h1>
-
+    <div class="d-flex justify-content-between title">
+        <h1>Actualité</h1>
+        <a class="admin-link" href="{{ path('actualite_index') }}">
+            <button class="btn admin-btn" role="button">retour</button>
+        </a>
+    </div>
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ actualite.id }}</td>
-            </tr>
-            <tr>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ actualite.id }}</td>#}
+{#            </tr>#}
+            <tr class="text-center">
                 <th>Titre</th>
                 <td>{{ actualite.titre }}</td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Description</th>
-                <td>{{ actualite.description }}</td>
+                <td>{{ actualite.description |raw}}</td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Module</th>
                 <td>{% for module in actualite.module %}
                         <div>{{ module.nom }}</div>
                     {% endfor %}
                 </td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Date</th>
                 <td>{{ actualite.date ? actualite.date|date('d-m-Y') : '' }}</td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Heure</th>
                 <td>{{ actualite.heure ? actualite.heure|date('H:i') : '' }}</td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Lieu</th>
                 <td>{{ actualite.lieu }}</td>
             </tr>
-            <tr>
+            <tr class="text-center">
                 <th>Image</th>
                 <td><img src="{{ asset(actualite.image.imgpath) }}" width="150px"></td>
             </tr>
         </tbody>
     </table>
-
-    <a class="admin-link" href="{{ path('actualite_index') }}">
-        <button class="btn admin-btn" role="button">retour</button>
-    </a>
-
-    <a class="admin-link" href="{{ path('actualite_edit', {'id': actualite.id}) }}">
-        <button class="btn admin-btn">editer</button>
-    </a>
-
-    {{ include('actualite/_delete_form.html.twig') }}
+    <div class="container">
+        <div class="row text-center mb-3">
+            <div class="col">
+                <a class="admin-link" href="{{ path('actualite_edit', {'id': actualite.id}) }}">
+                    <button class="btn admin-btn">editer</button>
+                </a>
+            </div>
+            <div class="col">
+                {{ include('actualite/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

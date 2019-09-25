@@ -3,15 +3,20 @@
 {% block title %}Editer Actualité{% endblock %}
 
 {% block body %}
-    <div class="d-flex justify-content-between">
-        <h1>Editer Actualité</h1>
-        <a class="admin-link" href="{{ path('actualite_index') }}">
-            <button class="btn admin-btn" role="button">retour</button>
-        </a>
+<div class="d-flex justify-content-between">
+    <h1>Editer Actualité</h1>
+    <a class="admin-link" href="{{ path('actualite_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<div class="text-center m-3">
+    {{ include('actualite/_form.html.twig', {'button_label': 'Valider'}) }}
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            {{ include('actualite/_delete_form.html.twig') }}
+        </div>
     </div>
-    <div class="edit-btn">
-        {{ include('actualite/_form.html.twig', {'button_label': 'Valider'}) }}
-
-        {{ include('actualite/_delete_form.html.twig') }}
-    </div>
+</div>
 {% endblock %}

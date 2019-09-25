@@ -1,34 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pressbook{% endblock %}
+{% block title %}Article de presse{% endblock %}
 
 {% block body %}
-    <h1>Pressbook</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ pressbook.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ pressbook.title }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ pressbook.url }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ asset(pressbook.image.imgpath) }}" width="150px" height="150px"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('pressbook_index') }}">back to list</a>
-
-    <a href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">edit</a>
-
-    {{ include('pressbook/_delete_form.html.twig') }}
+<div class="d-flex justify-content-between title">
+    <h1>Article de presse</h1>
+    <a class="admin-link" href="{{ path('pressbook_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<table class="table">
+    <tbody>
+{#        <tr class="text-center">#}
+{#            <th>Id</th>#}
+{#            <td>{{ pressbook.id }}</td>#}
+{#        </tr>#}
+        <tr class="text-center">
+            <th>Titre</th>
+            <td>{{ pressbook.title }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Url</th>
+            <td>{{ pressbook.url }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Image</th>
+            <td><img src="{{ asset(pressbook.image.imgpath) }}" alt="{{ asset(pressbook.image.alt) }}" width="150px" height="150px"></td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <div class="row text-center mb-3">
+        <div class="col">
+            <a class="admin-link" href="{{ path('pressbook_edit', {'id': pressbook.id}) }}">
+                <button class="btn admin-btn">editer</button>
+            </a>
+        </div>
+        <div class="col">
+            {{ include('pressbook/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contactuser{% endblock %}
+{% block title %}Editer Informations personnelles{% endblock %}
 
 {% block body %}
-    <h1>Edit Contactuser</h1>
-
-    {{ include('contactuser/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('contactuser_index') }}">back to list</a>
-
-    {{ include('contactuser/_delete_form.html.twig') }}
+<div class="d-flex justify-content-between">
+    <h1>Editer Données personnelles</h1>
+    <a class="admin-link" href="{{ path('contactuser_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<div class="text-center m-3">
+    {{ include('contactuser/_form.html.twig', {'button_label': 'Valider'}) }}
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            {{ include('contactuser/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

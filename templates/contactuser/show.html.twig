@@ -3,45 +3,54 @@
 {% block title %}Contactuser{% endblock %}
 
 {% block body %}
-    <h1>Contactuser</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contactuser.id }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ contactuser.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Jour_ouverture</th>
-                <td>{{ contactuser.jourOuverture }}</td>
-            </tr>
-            <tr>
-                <th>Heure_ouverture</th>
-                <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Heure_fermeture</th>
-                <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{asset(contactuser.image.imgpath) }}" width="150px"></td>
-            </tr>
-            <tr>
-                <th>Presentation</th>
-                <td>{{ contactuser.presentation }}</td>
-            </tr>
-
-        </tbody>
-    </table>
-
-    <a href="{{ path('contactuser_index') }}">back to list</a>
-
-    <a href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">edit</a>
-
-    {{ include('contactuser/_delete_form.html.twig') }}
+<div class="d-flex justify-content-between title">
+    <h1>Informations personnelles</h1>
+    <a class="admin-link" href="{{ path('contactuser_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<table class="table">
+    <tbody>
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ contactuser.id }}</td>#}
+{#            </tr>#}
+        <tr class="text-center">
+            <th>Téléphone</th>
+            <td>{{ contactuser.telephone }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Jours d'ouverture</th>
+            <td>{{ contactuser.jourOuverture }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Heure d'ouverture</th>
+            <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Heure de fermeture</th>
+            <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Image</th>
+            <td><img src="{{asset(contactuser.image.imgpath) }}" width="150px"></td>
+        </tr>
+        <tr class="text-center">
+            <th>Présentation</th>
+            <td>{{ contactuser.presentation |raw}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <div class="row text-center mb-3">
+        <div class="col">
+            <a class="admin-link" href="{{ path('contactuser_edit', {'id': contactuser.id}) }}">
+                <button class="btn admin-btn">editer</button>
+            </a>
+        </div>
+        <div class="col">
+            {{ include('contactuser/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

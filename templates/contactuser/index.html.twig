@@ -5,19 +5,18 @@
 {% block body %}
     <div class="d-flex justify-content-between title">
         <h1>Informations personnelles</h1>
-        <a class="admin-link" href="{{ path('contactuser_new') }}">
-            <button class="btn admin-btn" role="button">Creer</button>
-        </a>
+{#        <a class="admin-link" href="{{ path('contactuser_new') }}">#}
+{#            <button class="btn admin-btn" role="button">Creer</button>#}
+{#        </a>#}
     </div>
-
     <table class="table">
         <thead>
             <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Téléphone</th>
-                <th>Jour ouverture</th>
-                <th>Heure ouverture</th>
-                <th>Heure fermeture</th>
+                <th>Jour d'ouverture</th>
+                <th>Heure d'ouverture</th>
+                <th>Heure d'fermeture</th>
                 <th>Image</th>
                 <th>Présentation</th>
                 <th>Actions</th>
@@ -31,7 +30,7 @@
                 <td>{{ contactuser.jourOuverture }}</td>
                 <td>{{ contactuser.heureOuverture ? contactuser.heureOuverture|date('H:i') : '' }}</td>
                 <td>{{ contactuser.heureFermeture ? contactuser.heureFermeture|date('H:i') : '' }}</td>
-                <td><img src="{{ asset(contactuser.image.imgpath) }}" width="150px"></td>
+                <td><img src="{{ asset(contactuser.image.imgpath) }}" alt="{{ asset(contactuser.image.alt) }}" width="150px"></td>
                 <td>{{ contactuser.presentation |raw }}</td>
                 <td class="data-center">
                     <a class="admin-link" href="{{ path('contactuser_show', {'id': contactuser.id}) }}">

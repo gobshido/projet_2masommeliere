@@ -3,7 +3,7 @@
 {% block title %}Actualité index{% endblock %}
 
 {% block body %}
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between title">
         <h1>Actualités</h1>
         <a class="admin-link" href="{{ path('actualite_new') }}">
             <button class="btn admin-btn" role="button">Creer</button>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         {% for actualite in actualites %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ actualite.id }}</td>#}
                 <td>{{ actualite.titre }}</td>
                 <td>{{ actualite.description |raw }}</td>

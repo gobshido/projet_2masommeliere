@@ -3,57 +3,63 @@
 {% block title %}Prestation{% endblock %}
 
 {% block body %}
+<div class="d-flex justify-content-between title">
     <h1>Prestation</h1>
-
-    <table class="table">
-        <tbody>
+    <a class="admin-link" href="{{ path('prestation_index') }}">
+        <button class="btn admin-btn" role="button">retour</button>
+    </a>
+</div>
+<table class="table">
+    <tbody>
 {#            <tr>#}
 {#                <th>Id</th>#}
 {#                <td>{{ prestation.id }}</td>#}
 {#            </tr>#}
-            <tr>
-                <th>Cibles</th>
-                <td>{% for cible in prestation.cibles %}
-                        {{ cible.nom }}
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <th>Catégorie</th>
-                <td>{{ prestation.categorie.nom }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ prestation.nom }}</td>
-            </tr>
-            <tr>
-                <th>Modules</th>
-                <td>{% for module in prestation.modules %}
-                        {{ module.nom }}
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ prestation.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{% for price in prestation.prices %}
-                        <span>{{ price.value }}</span>
-                    {% endfor %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a class="admin-link" href="{{ path('prestation_index') }}">
-        <button class="btn admin-btn" role="button">retour</button>
-    </a>
-
-    <a class="admin-link" href="{{ path('prestation_edit', {'id': prestation.id}) }}">
-        <button class="btn admin-btn">editer</button>
-    </a>
-
-    {{ include('prestation/_delete_form.html.twig') }}
+        <tr class="text-center">
+            <th>Cibles</th>
+            <td>{% for cible in prestation.cibles %}
+                    {{ cible.nom }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr class="text-center">
+            <th>Catégorie</th>
+            <td>{{ prestation.categorie.nom }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Nom</th>
+            <td>{{ prestation.nom }}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Modules</th>
+            <td>{% for module in prestation.modules %}
+                    {{ module.nom }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr class="text-center">
+            <th>Description</th>
+            <td>{{ prestation.description |raw}}</td>
+        </tr>
+        <tr class="text-center">
+            <th>Prix</th>
+            <td>{% for price in prestation.prices %}
+                    <span>{{ price.value }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container">
+    <div class="row text-center mb-3">
+        <div class="col">
+            <a class="admin-link" href="{{ path('prestation_edit', {'id': prestation.id}) }}">
+                <button class="btn admin-btn">editer</button>
+            </a>
+        </div>
+        <div class="col">
+            {{ include('prestation/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

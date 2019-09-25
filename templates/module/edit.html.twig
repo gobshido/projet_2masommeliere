@@ -9,9 +9,14 @@
         <button class="btn admin-btn" role="button">retour</button>
     </a>
 </div>
-<div class="edit-btn">
+<div class="text-center m-3">
     {{ include('module/_form.html.twig', {'button_label': 'Valider'}) }}
-
-    {{ include('module/_delete_form.html.twig') }}
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            {{ include('module/_delete_form.html.twig') }}
+        </div>
+    </div>
 </div>
 {% endblock %}

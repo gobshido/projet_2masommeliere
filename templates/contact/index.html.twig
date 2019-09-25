@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact index{% endblock %}
+{% block title %}Messages{% endblock %}
 
 {% block body %}
     <div class="d-flex justify-content-center title">
@@ -8,7 +8,7 @@
     </div>
     <table class="table">
         <thead>
-            <tr class="row-center">
+            <tr class="text-center">
 {#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         {% for contact in contacts %}
-            <tr>
+            <tr class="text-center">
 {#                <td>{{ contact.id }}</td>#}
                 <td>{{ contact.lastname }}</td>
                 <td>{{ contact.firstname }}</td>

@@ -1,4 +1,4 @@
-<form class="form-delete" method="post" action="{{ path('module_delete', {'id': module.id}) }}"
+<form method="post" action="{{ path('module_delete', {'id': module.id}) }}"
       onsubmit="return confirm('Confirmer la suppression du module ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ module.id) }}">
