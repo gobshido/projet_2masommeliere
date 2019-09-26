@@ -1,7 +1,3 @@
-.temp{
-    height: 200px;
-    width: 200px;
-}
 header{
     margin-bottom: 20px;
 }
@@ -47,9 +43,6 @@ h5.log a.btn.btn-outline-danger:hover{
 .mod{
     width: 250px;
 }
-.t-body-center{
-    text-align: center;
-}
 .data-center{
     display: flex;
     flex-direction: column;
@@ -70,23 +63,8 @@ h5.log a.btn.btn-outline-danger:hover{
     background: #A60815;
     color: white;
 }
-.admin-valid{
-    position: relative;
-    left: 50%;
-}
-.edit-btn{
-    display: flex;
-    justify-content: space-around;
-}
-.cat-edit-div{
-    text-align: end;
-}
-.cat-edit-btn{
-    width: 120px;
-}
-.form-delete{
-    position: absolute;
-    margin-left: 10px;
+.reset-pw{
+    width: 270px !important;
 }
 div#actualite_module input{
     margin: 5px;

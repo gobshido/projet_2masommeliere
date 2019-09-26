@@ -14,21 +14,24 @@
                 <div>
                     <label for="username">{{ 'security.login.username'|trans }}</label>
                 </div>
-                <div>
+                <div class="mb-3">
                     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"
                            autocomplete="username"/>
                 </div>
                 <div>
                     <label for="password">{{ 'security.login.password'|trans }}</label>
                 </div>
-                <div>
+                <div class="mb-3">
                     <input type="password" id="password" name="_password" required="required" autocomplete="current-password"/>
                 </div>
-                <div>
+                <div class="mb-3">
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
                 </div>
-                <input class=" btn admin-btn" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
+                <input class="btn admin-btn mb-3" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
+                <div>
+                    <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
+                </div>
             </form>
         </div>
     </div>
