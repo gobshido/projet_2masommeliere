@@ -24,9 +24,16 @@ class ActualiteController extends AbstractFOSRestController
      *     name="actualite_api", methods={ "GET" })
      * @Rest\View()
      */
-    public function index(ActualiteRepository $actualiteRepository):View
+    public function index(Request $request, ActualiteRepository $actualiteRepository):View
     {
-        $actualites = $actualiteRepository->findAll();
+        $entityManager = $this->getDoctrine()->getManager();
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM App\Entity\Actualite p
+            ORDER BY p.date DESC'
+        );
+        $actualites = $query->getResult();
+//            $actualiteRepository->findAll();
         //In case our GET was a success we need to return de 200 HTTP_OK
         //response with the collection of actualite object
         return View::create($actualites, Response::HTTP_OK);

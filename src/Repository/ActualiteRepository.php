@@ -19,9 +19,32 @@ class ActualiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Actualite::class);
     }
 
-    // /**
-    //  * @return Actualite[] Returns an array of Actualite objects
-    //  */
+//    /**
+//     * @return Actualite[] Returns an array of Actualite objects
+//     */
+//    public function findByDate($criteria): array
+//    {
+//        $entityManager = $this->getDoctrine()->getManager();
+//
+//        $query = $entityManager->createQuery(
+//            'SELECT p
+//            FROM App\Entity\Actualite p
+//            ORDER BY p.date DESC'
+//        )
+//            ->setParameter('date', $criteria);
+//        return $query->execute();
+
+//        $qb = $this->createQueryBuilder('actualite')
+//            ->andWhere('actualite.date = :date')
+//            ->setParameter('date', $date)
+//            ->orderBy('actualite.date', 'DESC')
+//            ->getQuery();
+//        return $qb->execute();
+//    }
+
+//     /**
+//      * @return Actualite[] Returns an array of Actualite objects
+//      */
     /*
     public function findByExampleField($value)
     {

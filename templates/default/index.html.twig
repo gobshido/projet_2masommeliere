@@ -4,12 +4,22 @@
 
     {% if is_granted("IS_AUTHENTICATED_FULLY") %}
         <div class="authentification">
-            <h3 class="d-flex justify-content-center">Bienvenue {{ app.user.username }}, vous êtes connecté{% if is_granted("ROLE_ADMIN") %} en tant qu'administrateur {% endif %}</h3>
-            <h5 class="d-flex justify-content-center log"><a href="{{ path("fos_user_security_logout") }}" class="btn btn-outline-danger" role="button">Se Déconnecter</a></h5>
+            <h3 class="d-flex justify-content-center">
+                Bienvenue {{ app.user.username }}, vous êtes connecté{% if is_granted("ROLE_ADMIN") %} en tant qu'administrateur {% endif %}
+            </h3>
+            <h5 class="d-flex justify-content-center log">
+                <a href="{{ path("fos_user_security_logout") }}" class="btn btn-outline-danger" role="button">
+                    Se Déconnecter
+                </a>
+            </h5>
         </div>
     {% else %}
-        </div class="authentification">
-        <h5 class="d-flex justify-content-center log"><a href="{{ path("fos_user_security_login") }}" class="btn btn-outline-danger" role="button">Se Connecter</a></h5>
+        <div class="authentification">
+            <h5 class="d-flex justify-content-center log">
+                <a href="{{ path("fos_user_security_login") }}" class="btn btn-outline-danger" role="button">
+                    Se Connecter
+                </a>
+            </h5>
         </div>
     {% endif %}
 
